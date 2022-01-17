@@ -4,13 +4,16 @@ public class PlayerMovement : MonoBehaviour
 {
     public int m_PlayerNumber = 1;
     public float m_Speed = 12f;
-    public float m_TurnSpeed = 180f;
+    public float m_RotationSpeed = 180f;
 
-    private string m_MovementAxisName;
-    private string m_TurnAxisName;
+    [SerializeField]
+    private Camera Camera;
+
+    private string m_VerticalAxisName;
+    private string m_HorizontalAxisName;
     private Rigidbody m_Rigidbody;
-    private float m_MovementInputValue;
-    private float m_TurnInputValue;
+    private float m_VerticalInputValue;
+    private float m_HorizontalInputValue;
 
 
     private void Awake()
@@ -22,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         m_Rigidbody.isKinematic = false;
-        m_MovementInputValue = 0f;
-        m_TurnInputValue = 0f;
+        m_VerticalInputValue = 0f;
+        m_HorizontalInputValue = 0f;
     }
 
 
@@ -35,45 +38,41 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        m_MovementAxisName = "Vertical" + m_PlayerNumber;
-        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
+        m_VerticalAxisName = "Vertical" + m_PlayerNumber;
+        m_HorizontalAxisName = "Horizontal" + m_PlayerNumber;
     }
 
 
     private void Update()
     {
         // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+        m_VerticalInputValue = Input.GetAxis(m_VerticalAxisName);
+        m_HorizontalInputValue = Input.GetAxis(m_HorizontalAxisName);
 
+        var targetVector = new Vector3(m_HorizontalInputValue, 0, m_VerticalInputValue);
+        var movementVector = MoveTowardTarget(targetVector);
     }
 
     private void FixedUpdate()
     {
-        // Move and turn the tank.
-        Move();
-        Turn();
+       /* var targetVector = new Vector3(m_HorizontalInputValue, 0, m_VerticalInputValue);
+        var movementVector = MoveTowardTarget(targetVector); */
+
     }
 
-
-    private void Move()
+    private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        // Adjust the position of the tank based on the player's input.
-        Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
-
-        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        var speed = m_Speed * Time.deltaTime;
+        targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
+        var targetPosition = transform.position + targetVector * speed;
+        transform.position = targetPosition;
+        return targetVector;
     }
 
-
-    private void Turn()
+    private void RotateTowardMovementVector(Vector3 movementDirection)
     {
-        // Determine the number of degrees to be turned based on the input, speed and time between frames.
-        float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
-
-        // Make this into a rotation in the y axis.
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-
-        // Apply this rotation to the rigidbody's rotation.
-        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+        if (movementDirection.magnitude == 0) { return; }
+        var rotation = Quaternion.LookRotation(movementDirection);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, m_RotationSpeed);
     }
 }
