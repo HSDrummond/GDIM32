@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 867161141}
   m_Layer: 0
   m_Name: PumpkinPatch
-  m_TagString: Untagged
+  m_TagString: SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1713,6 +1713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099622569}
   - component: {fileID: 2099622570}
+  - component: {fileID: 2099622571}
   m_Layer: 0
   m_Name: PlantManager
   m_TagString: Untagged
@@ -1741,13 +1742,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099622568}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a13f7699dcffe054fadaf5a3ff6fb494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cropToPlant: {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
   spawnManagerValues: {fileID: 11400000, guid: 784006cab016b7c43b054f5cadda489e, type: 2}
+--- !u!114 &2099622571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099622568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df26f7323f59cb44ab4c4e7c29bbff60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  croplist:
+  - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
 --- !u!1 &2103652444
 GameObject:
   m_ObjectHideFlags: 0

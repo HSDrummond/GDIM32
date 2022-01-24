@@ -9,15 +9,17 @@ public class CropManager : MonoBehaviour
 
     void Start()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        GameObject[] spawnPatches = GameObject.FindGameObjectsWithTag("SpawnPatch");
 
         //CropSpawner[] Crops = Resources.LoadAll<CropSpawner>("Crops");
 
-        foreach(GameObject point in spawnPoints)
+        foreach(GameObject patch in spawnPatches)
         {
-            foreach (Transform child in transform)
+            Debug.Log("1st floop");
+            foreach (Transform spawnPoint in patch.transform)
             {
-                GameObject currentEntity = Instantiate(croplist[0], child.position, Quaternion.identity);
+                Instantiate(croplist[0], spawnPoint.position, Quaternion.identity);
+                Debug.Log("2nd floop");
             }
             //go through each child of thing with tag "SwapPoints" 
                 //instantiate a random crop into all the children
