@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public PlayerMovement Following { get; set; }
 
     private bool pickUpAllowed;
+
+    [SerializeField]
+    private GameObject player;
+
     private void Update()
     {
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
@@ -31,6 +36,10 @@ public class PickUp : MonoBehaviour
 
     private void PickUpItem()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        //gameObject.transform.SetParent(player.transform, false);
+        Following.Follow(gameObject);
     }
+
+
 }

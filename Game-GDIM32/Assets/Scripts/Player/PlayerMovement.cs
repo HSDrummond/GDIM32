@@ -11,11 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    public Transform inven_Prefab;
+    //public Transform inven_Prefab;
 
     Vector2 movement;
 
-    private List<Transform> m_Inventory;
+    public List<Transform> m_Inventory;
 
     private void Start()
     {
@@ -40,15 +40,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void Follow()
-    {
-        Transform follower = Instantiate(this.inven_Prefab);
-        follower.position = m_Inventory[m_Inventory.Count - 1].position;
-
-        m_Inventory.Add(follower);
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
+   /* public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Crop"))
         {
@@ -58,5 +50,15 @@ public class PlayerMovement : MonoBehaviour
             }
            
         }
+    }*/
+
+    public void Follow(GameObject gameObject)
+    {
+
+        //Transform follower = Instantiate(this.inven_Prefab);
+        gameObject.transform.position = m_Inventory[m_Inventory.Count - 1].position;
+
+        m_Inventory.Add(gameObject.transform);
     }
+
 }

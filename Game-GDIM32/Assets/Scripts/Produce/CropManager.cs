@@ -21,8 +21,6 @@ public class CropManager : MonoBehaviour
                 Instantiate(croplist[0], spawnPoint.position, Quaternion.identity);
                 Debug.Log("2nd floop");
             }
-            //go through each child of thing with tag "SwapPoints" 
-                //instantiate a random crop into all the children
         }
     }
 
