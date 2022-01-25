@@ -38,6 +38,11 @@ public class PickUp : MonoBehaviour
     {
         //Destroy(gameObject);
         //gameObject.transform.SetParent(player.transform, false);
+
+
+        //temporary to p1 for singleplayer
+        PlayersStats.p1_item_count += 1;
+
         Following.Follow(gameObject);
     }
 
