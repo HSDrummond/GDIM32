@@ -1763,6 +1763,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   croplist:
   - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
+  - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
+  - {fileID: 3734496889178035889, guid: 80ecebbcffcf74d41b46039089be9097, type: 3}
+  - {fileID: 2604841240390974244, guid: 8ca7ec85e96c2764fa5b88a7af93475d, type: 3}
+  - {fileID: 6844674759705574240, guid: 41fec6a26af1b6346933c515609af839, type: 3}
 --- !u!1 &2103652444
 GameObject:
   m_ObjectHideFlags: 0
