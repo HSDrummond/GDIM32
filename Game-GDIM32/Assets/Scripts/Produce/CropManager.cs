@@ -15,10 +15,13 @@ public class CropManager : MonoBehaviour
 
         foreach(GameObject patch in spawnPatches)
         {
+            int randomCrop = Random.Range(0, croplist.Count);
             Debug.Log("1st floop");
+
             foreach (Transform spawnPoint in patch.transform)
             {
-                Instantiate(croplist[0], spawnPoint.position, Quaternion.identity);
+
+                Instantiate(croplist[randomCrop], spawnPoint.position, Quaternion.identity);
                 Debug.Log("2nd floop");
             }
         }

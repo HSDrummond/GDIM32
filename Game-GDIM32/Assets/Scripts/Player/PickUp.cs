@@ -28,6 +28,8 @@ public class PickUp : MonoBehaviour
             // notifies all the subscribing classes, right now there is only one: Inventory
             pickupEvent.Invoke(gameObject);
             PickUpItem();
+
+            pickUpAllowed = false;
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
