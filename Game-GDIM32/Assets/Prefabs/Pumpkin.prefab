@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 2950150854912063078}
   - component: {fileID: 2950150854912063079}
   - component: {fileID: 2950150854912063076}
-  - component: {fileID: 2950150854912063077}
   - component: {fileID: 8323320313768267609}
   m_Layer: 0
   m_Name: Pumpkin
@@ -154,9 +153,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1426540599
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0.59751904, b: 0, a: 1}
   m_FlipX: 0
@@ -194,18 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2604046}
   m_EdgeRadius: 0
---- !u!114 &2950150854912063077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950150854912063082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55dd2c4a8e3f19742baf5b1ff4f855a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8323320313768267609
 MonoBehaviour:
   m_ObjectHideFlags: 0

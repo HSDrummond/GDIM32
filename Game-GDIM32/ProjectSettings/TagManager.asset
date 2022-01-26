@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Crops
+    uniqueID: 2868426697
+    locked: 0
+  - name: Players
+    uniqueID: 2090888555
+    locked: 0
+  - name: Weapons
+    uniqueID: 2920253041
+    locked: 0
