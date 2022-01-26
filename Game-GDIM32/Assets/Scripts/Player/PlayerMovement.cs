@@ -2,26 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// has a single responsibility to control player 
 public class PlayerMovement : MonoBehaviour
 {
-
+    // Fields that you access and set in the Unity Editor can be private and serialized
+    
     public int m_PlayerNumber = 0;
 
-    public float moveSpeed = 15f;
+    [SerializeField]
+    private float moveSpeed = 15f;
 
-    public Rigidbody2D rb;
+    [SerializeField]
+    private Rigidbody2D rb;
 
-    //public Transform inven_Prefab;
-
-    Vector2 movement;
-
-    public List<Transform> m_Inventory;
-
-    private void Start()
-    {
-        m_Inventory = new List<Transform>();
-        m_Inventory.Add(this.transform);
-    }
+    private Vector2 movement;
 
     private void Update()
     {
@@ -32,33 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for (int i = m_Inventory.Count - 1; i > 0; i--)
-        {
-            m_Inventory[i].position = m_Inventory[i - 1].position;
-        }
         //Physics
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-   /* public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Crop"))
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Follow();
-            }
-           
-        }
-    }*/
-
-    public void Follow(GameObject gameObject)
-    {
-
-        //Transform follower = Instantiate(this.inven_Prefab);
-        gameObject.transform.position = m_Inventory[m_Inventory.Count - 1].position;
-
-        m_Inventory.Add(gameObject.transform);
-    }
+    
 
 }
