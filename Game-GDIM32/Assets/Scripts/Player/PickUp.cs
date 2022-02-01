@@ -53,7 +53,7 @@ public class PickUp : MonoBehaviour
         // This doesn't do anything right now,
         // but could for example change the size of the picked item or anything else.
 
-        // Destroy(gameObject);
+        Destroy(gameObject);
         // gameObject.transform.SetParent(player.transform, false);
         // Following.Follow(gameObject);
     }

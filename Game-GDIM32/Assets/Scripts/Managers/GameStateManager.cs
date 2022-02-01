@@ -18,10 +18,11 @@ public class GameStateManager : GenericSingletonClass<GameStateManager>
 
     void Update()
     {
-
+      //Debug.Log(PlayersStats.p1_item_count);
         // WIN CONDITION
         if (PlayersStats.p1_item_count >= 5 || PlayersStats.p2_item_count >= 5)
         {
+            
             WinScreen.gameOver = true;
         }
         CheckTimeLoss();

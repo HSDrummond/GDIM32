@@ -24,6 +24,8 @@ public class CropManager : MonoBehaviour
                 Instantiate(croplist[randomCrop], spawnPoint.position, Quaternion.identity);
                 Debug.Log("2nd floop");
             }
+            croplist.RemoveAt(randomCrop);
+            Debug.Log("no repeats");
         }
     }
 
