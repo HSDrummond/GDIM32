@@ -6,19 +6,19 @@ public class AnimalScript : MonoBehaviour
 {
     public Transform target;
     public float speed = 1f;
+    GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject Player;
         Player = GameObject.FindWithTag("Player");
         target = Player.transform;
+
         transform.LookAt(target.position);
         transform.Rotate(new Vector3(0,-90, 0), Space.Self);
 

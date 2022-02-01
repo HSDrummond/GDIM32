@@ -15,12 +15,12 @@ public class Inventory : MonoBehaviour
     // Subscribe for the pickup notification
     private void OnEnable()
     {
-        PickUp.pickupEvent += Follow;
+        PickUp.pickupEvent += AddToInventory;
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
-        PickUp.pickupEvent -= Follow;
+        PickUp.pickupEvent -= AddToInventory;
     }
 
     private void Start()
@@ -42,10 +42,23 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void Follow(GameObject gameObject)
+    public void AddToInventory(GameObject gameObject)
     {
         //Transform follower = Instantiate(this.inven_Prefab);
         // gameObject.transform.position = m_Inventory[m_Inventory.Count - 1].position;
         m_Inventory.Add(gameObject.transform);
+        
+        if (gameObject.tag == "Crop")
+        {
+            PlayersStats.p1_crop_count += 1;
+        }
+        else if (gameObject.tag == "Animal")
+        {
+            PlayersStats.p1_animal_count += 1;
+        }
+        else
+        {
+            Debug.Log("No tag on target");
+        }
     }
 }
