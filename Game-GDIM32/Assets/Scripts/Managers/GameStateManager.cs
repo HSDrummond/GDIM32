@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : GenericSingletonClass<GameStateManager>
 {
@@ -23,6 +24,10 @@ public class GameStateManager : GenericSingletonClass<GameStateManager>
         {
             WinScreen.gameOver = true;
         }
+        CheckTimeLoss();
+
+        
+
     }
 
     private void SpawnPlayers()
@@ -47,5 +52,14 @@ public class GameStateManager : GenericSingletonClass<GameStateManager>
         }
 
         m_CameraControl.m_Targets = targets;
+    }
+
+
+    private void CheckTimeLoss()
+    {
+        if (Timer.currentTime == 0)
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 }
