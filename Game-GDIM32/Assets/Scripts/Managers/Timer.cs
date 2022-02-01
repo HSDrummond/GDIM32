@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour
     float startingTime = 60f;
 
     [SerializeField] Text CountDownTimer;
+
+    private float timer; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +22,21 @@ public class Timer : MonoBehaviour
     void Update()
     {
         currentTime -= 1 * Time.deltaTime;
-        CountDownTimer.text = currentTime.ToString("0");
+        DisplayTime(currentTime);
 
         if(currentTime <= 0)
         {
             currentTime = 0;
         }
+    }
+
+    void DisplayTime( float currentTime)
+    {
+        currentTime += 1;
+
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+
+        CountDownTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
