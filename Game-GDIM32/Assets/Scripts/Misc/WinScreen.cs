@@ -26,6 +26,18 @@ public class WinScreen : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        winScreen.SetActive(false);
+        gameOver = false;
+        ResetGame();
         SceneManager.LoadScene(0);
+    }
+
+    private void ResetGame()
+    {
+        PlayersStats.p1_animal_count = 0;
+        PlayersStats.p1_crop_count = 0;
+        PlayersStats.p2_animal_count = 0;
+        PlayersStats.p1_crop_count = 0;
+        PlayersStats.p1_item_count = 0;
     }
 }
