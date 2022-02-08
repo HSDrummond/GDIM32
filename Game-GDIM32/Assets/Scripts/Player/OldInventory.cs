@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Manages the picked items
-public class Inventory : MonoBehaviour
+public class OldInventory : MonoBehaviour
 {
  // private List<Transform> m_Inventory;
 
@@ -15,12 +15,12 @@ public class Inventory : MonoBehaviour
     // Subscribe for the pickup notification
     private void OnEnable()
     {
-        PickUp.pickupEvent += AddToInventory;
+        //PickUp.PickupEvent += AddToInventory;
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
-        PickUp.pickupEvent -= AddToInventory;
+        //PickUp.PickupEvent -= AddToInventory;
     }
 
     private void Start()

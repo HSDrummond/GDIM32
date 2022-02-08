@@ -8,17 +8,16 @@ using UnityEngine;
 //          - if picked it could notify the sound manager to display a sound
 //          - if pickable it could also notify the UI to display a label {'E'}
 
-public delegate void PickUpDelegate(GameObject gameobject);
+public delegate void PickUpDelegate(GameObject gameObject);
 
 public class PickUp : MonoBehaviour
 {
-    // Here you create a new Inventory for every item that can be picked.
-    // Instead of having one Inventory that you access when needed. So I commented it out.
-    // public Inventory Following { get; set; }
 
     private bool pickUpAllowed;
+    public Sprite icon;
+
     // a delegate that will observ the pickup
-    public static event PickUpDelegate pickupEvent;
+    public static event PickUpDelegate PickupEvent;
 
 
     private void Update()
@@ -26,10 +25,11 @@ public class PickUp : MonoBehaviour
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
         {
             // notifies all the subscribing classes, right now there is only one: Inventory
-            pickupEvent.Invoke(gameObject);
+            PickupEvent.Invoke(gameObject);
             PickUpItem();
 
             pickUpAllowed = false;
+
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
@@ -50,12 +50,7 @@ public class PickUp : MonoBehaviour
 
     private void PickUpItem()
     {
-        // This doesn't do anything right now,
-        // but could for example change the size of the picked item or anything else.
-
-        Destroy(gameObject);
-        // gameObject.transform.SetParent(player.transform, false);
-        // Following.Follow(gameObject);
+       //Does Nothing Yet
     }
 
 
