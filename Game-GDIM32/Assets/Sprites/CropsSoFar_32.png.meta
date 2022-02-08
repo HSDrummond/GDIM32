@@ -35,6 +35,18 @@ TextureImporter:
   - first:
       213: -6248798695704339712
     second: Cow
+  - first:
+      213: 4156894756803550561
+    second: Bull
+  - first:
+      213: 1306093327498029617
+    second: Chicken
+  - first:
+      213: -8484260033640430117
+    second: Chick_Nest
+  - first:
+      213: 2171909890797672504
+    second: Chick_Egg
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -362,6 +374,90 @@ TextureImporter:
       bones: []
       spriteID: 00b5e9d91bec749a0800000000000000
       internalID: -6248798695704339712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bull
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 22
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d95f3d1c140b930800000000000000
+      internalID: 4156894756803550561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 70
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a270d16fc202210800000000000000
+      internalID: 1306093327498029617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chick_Nest
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 92
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd581d0737ad14a80800000000000000
+      internalID: -8484260033640430117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chick_Egg
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 92
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8381725d98c242e10800000000000000
+      internalID: 2171909890797672504
       vertices: []
       indices: 
       edges: []
