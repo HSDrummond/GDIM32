@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-// has a single responsibility to control player 
 public class PlayerMovement : MonoBehaviour
 {
-    // Fields that you access and set in the Unity Editor can be private and serialized
     
     public int m_PlayerNumber = 0;
 
@@ -15,13 +12,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
-    private Vector2 movement;
+    private Vector2 movement = Vector2.zero;
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
+    }
 
     private void Update()
     {
         //Input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.x = Input.GetAxisRaw("Horizontal");
+       // movement.y = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
@@ -33,3 +35,28 @@ public class PlayerMovement : MonoBehaviour
     
 
 }
+/*private void Start()
+    {
+        controller = gameObject.GetComponent<CharacterController>();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
+    }
+
+    private void Update()
+    {
+        //Input
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        //movement.y = Input.GetAxisRaw("Vertical");
+    }
+
+    private void FixedUpdate()
+    {
+        //Physics
+        Vector3 move = new Vector3(movement.x, movement.y, 0);
+        controller.Move(move * Time.deltaTime * moveSpeed);
+        //rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+*/
