@@ -3,12 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStateManager : GenericSingletonClass<GameStateManager>
+public class GameStateManager : MonoBehaviour
+//GenericSingletonClass<GameStateManager>
 {
-
     public PlayerManager[] m_Players;
     public GameObject m_PlayerPrefab;
     public CameraControl m_CameraControl;
+
+    [SerializeField]
+    private List<string> m_Levels = new List<string>();
+    [SerializeField]
+    private string m_TitleSceneName;
+
+    private static GameStateManager _instance;
+
+    enum GAMESTATE
+    {
+        MENU,
+        PLAYING,
+        PAUSED,
+        GAMEOVER
+    }
+
+    private static GAMESTATE m_State;
 
     private void Start()
     {
@@ -16,19 +33,32 @@ public class GameStateManager : GenericSingletonClass<GameStateManager>
         SetCameraTargets();
     }
 
-    void Update()
+    private void Awake()
     {
-      //Debug.Log(PlayersStats.p1_item_count);
-        // WIN CONDITION
-        if (PlayersStats.p1_item_count >= 5 || PlayersStats.p2_item_count >= 5)
+        if (_instance == null)
         {
-            
-            WinScreen.gameOver = true;
+            _instance = this;
+            DontDestroyOnLoad(_instance);
         }
-        CheckTimeLoss();
+        else
+        {
+            Destroy(this);
+        }
+    }
 
-        
+    public static void NewGame()
+    {
+        m_State = GAMESTATE.PLAYING;
+        if(_instance.m_Levels.Count > 0)
+        {
+            SceneManager.LoadScene(_instance.m_Levels[0]);
+        }
+    }
 
+    public static void QuitToTitle()
+    {
+        m_State = GAMESTATE.MENU;
+        SceneManager.LoadScene(_instance.m_TitleSceneName);
     }
 
     private void SpawnPlayers()
@@ -60,7 +90,45 @@ public class GameStateManager : GenericSingletonClass<GameStateManager>
     {
         if (Timer.currentTime == 0)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene(_instance.m_TitleSceneName);
         }
     }
+
+    /* public static void TogglePause()
+     {
+         if(m_State == GAMESTATE.PLAYING)
+         {
+             m_State = GAMESTATE.PAUSED;
+             Time.timeScale = 0;
+         }
+         else if(m_State == GAMESTATE.PAUSED)
+         {
+             m_State = GAMESTATE.PLAYING;
+             Time.timeScale = 1;
+         }
+     }*/
 }
+
+
+
+
+/*
+    
+
+    void Update()
+    {
+      //Debug.Log(PlayersStats.p1_item_count);
+        // WIN CONDITION
+        if (PlayersStats.p1_item_count >= 5 || PlayersStats.p2_item_count >= 5)
+        {
+            
+            WinScreen.gameOver = true;
+        }
+        CheckTimeLoss();
+
+        
+
+    }
+
+  
+*/
