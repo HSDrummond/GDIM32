@@ -19,7 +19,7 @@ public class PlayerManager
     public void Setup()
     {
         m_Movement = m_Instance.GetComponent<PlayerMovement>();
-        m_Movement.m_PlayerNumber = m_PlayerNumber;
+        //m_Movement.m_PlayerNumber = m_PlayerNumber;
     }
 
 
