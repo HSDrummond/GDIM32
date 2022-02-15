@@ -10,14 +10,14 @@ public class Mover : MonoBehaviour
     [SerializeField]
     private int playerIndex = 0;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D controller;
 
     private Vector3 moveDirection = Vector3.zero;
     private Vector2 inputVector = Vector2.zero;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        controller = GetComponent<Rigidbody2D>();
     }
 
     public int GetPlayerIndex()
@@ -30,15 +30,12 @@ public class Mover : MonoBehaviour
         inputVector = direction;
     }
 
-
     void Update()
     {
         moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= MoveSpeed;
 
-        rb.MovePosition(rb.position + inputVector * MoveSpeed * Time.fixedDeltaTime);
-        //rb.MovePosition(rb.position + moveDirection * Time.deltaTime);
+        controller.MovePosition(moveDirection * Time.deltaTime);
     }
 }
-
