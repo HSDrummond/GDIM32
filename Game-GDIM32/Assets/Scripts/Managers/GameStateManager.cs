@@ -17,7 +17,7 @@ public class GameStateManager : MonoBehaviour
 
     private static GameStateManager _instance;
 
-    enum GAMESTATE
+    public enum GAMESTATE
     {
         MENU,
         PLAYING,
@@ -25,16 +25,19 @@ public class GameStateManager : MonoBehaviour
         GAMEOVER
     }
 
-    private static GAMESTATE m_State;
+    public static GAMESTATE m_State;
 
     private void Start()
     {
-        SpawnPlayers();
-        SetCameraTargets();
+        //SpawnPlayers();
+        //SetCameraTargets();
     }
 
     private void Awake()
     {
+        SpawnPlayers();
+        SetCameraTargets();
+
         if (_instance == null)
         {
             _instance = this;
