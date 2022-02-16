@@ -21,7 +21,6 @@ public class PickUp : MonoBehaviour
     public static event PickUpDelegate PickupEvent;
 
     private PlayerControls playerControls;
-    private bool pickUp = false;
 
     private void Awake()
     {
@@ -42,21 +41,21 @@ public class PickUp : MonoBehaviour
 
     private void PerformPickup()
     {
-        pickUp = true;
-    }
-
-    private void Update()
-    {
-        if (pickUpAllowed && pickUp)
+        if (pickUpAllowed)
         {
             // notifies all the subscribing classes, right now there is only one: Inventory
             PickupEvent.Invoke(gameObject);
 
             pickUpAllowed = false;
-            pickUp = false;
 
         }
     }
+
+    private void Update()
+    {
+       
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

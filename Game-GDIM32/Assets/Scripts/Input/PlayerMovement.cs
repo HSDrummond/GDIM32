@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log("aaa");
         movement = context.ReadValue<Vector2>();
     }
 
