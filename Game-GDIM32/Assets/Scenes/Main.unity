@@ -3964,6 +3964,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+--- !u!1 &1058323623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2786050198612767312, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+  m_PrefabInstance: {fileID: 1058323622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1058323624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058323623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e766de818633b9c4c8fd33c226c9f5ca, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ac8768bd-2a15-4321-a38d-dcd73fb2c7d8
+    m_ActionName: Player1/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1058323625}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 30ef35b4-2afd-4ab4-8049-19c2adeb52be
+    m_ActionName: Player2/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player2
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1058323625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058323623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233511e2c4ca0994ab5e43be5ddd31f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 15
+  rb: {fileID: 1058323626}
+--- !u!50 &1058323626 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4975767040630335340, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+  m_PrefabInstance: {fileID: 1058323622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067338097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,6 +5379,80 @@ PrefabInstance:
     - {fileID: -3058186756033664290, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
     - {fileID: -2266522183329466091, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+--- !u!1 &1621200812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2786050198612767312, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+  m_PrefabInstance: {fileID: 1621200811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1621200813 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4975767040630335340, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+  m_PrefabInstance: {fileID: 1621200811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1621200814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621200812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233511e2c4ca0994ab5e43be5ddd31f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 15
+  rb: {fileID: 1621200813}
+--- !u!114 &1621200815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621200812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e766de818633b9c4c8fd33c226c9f5ca, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1621200814}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ac8768bd-2a15-4321-a38d-dcd73fb2c7d8
+    m_ActionName: Player1/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 30ef35b4-2afd-4ab4-8049-19c2adeb52be
+    m_ActionName: Player2/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player1
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1684873977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,7 +6257,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935111416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d54b6adee48aa468395924cab99ecb, type: 3}
   m_Name: 
