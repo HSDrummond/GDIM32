@@ -15,12 +15,14 @@ public class CropManager : MonoBehaviour
     #region Notifications
     private void OnEnable()
     {
-        PickUp.PickupEvent += StartRespawn;
+        PickUp.PickupEvent1 += StartRespawn;
+        PickUp.PickupEvent2 += StartRespawn;
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
-        PickUp.PickupEvent -= StartRespawn;
+        PickUp.PickupEvent1 -= StartRespawn;
+        PickUp.PickupEvent2 -= StartRespawn;
     }
     #endregion
 

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory2 : MonoBehaviour
 {
-    
+
     #region Singleton
 
-    public static Inventory instance;
+    public static Inventory2 instance;
     private void Awake()
     {
         instance = this;
     }
     #endregion
-    
+
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback = null;
@@ -25,18 +25,18 @@ public class Inventory : MonoBehaviour
     #region Notifications
     private void OnEnable()
     {
-        PickUp.PickupEvent += Add;
+        PickUp.PickupEvent2 += AddToInv2;
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
-        PickUp.PickupEvent -= Add;
+        PickUp.PickupEvent2 -= AddToInv2;
     }
     #endregion
 
-    public void Add(GameObject item)
+    public void AddToInv2(GameObject item)
     {
-        if(items.Count >= space)
+        if (items.Count >= space)
         {
             return;
         }
@@ -46,12 +46,12 @@ public class Inventory : MonoBehaviour
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
-            Debug.Log("Invoking callback");
+            Debug.Log("Invoking callback1");
         }
 
         item.SetActive(false);
 
-       
+
     }
 
     public void Remove(GameObject item)
@@ -63,6 +63,6 @@ public class Inventory : MonoBehaviour
 
         item.SetActive(true);
 
-       
+
     }
 }

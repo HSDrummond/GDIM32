@@ -35,8 +35,8 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
-        SpawnPlayers();
-        SetCameraTargets();
+        //SpawnPlayers();
+        //SetCameraTargets();
 
         if (_instance == null)
         {

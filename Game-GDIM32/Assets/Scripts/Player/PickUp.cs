@@ -14,19 +14,21 @@ public delegate void PickUpDelegate(GameObject gameObject);
 public class PickUp : MonoBehaviour
 {
 
-    private bool pickUpAllowed;
+    private bool pickUpAllowed1;
+    private bool pickUpAllowed2;
     public Sprite icon;
 
     // a delegate that will observ the pickup
-    public static event PickUpDelegate PickupEvent;
+    public static event PickUpDelegate PickupEvent1;
+    public static event PickUpDelegate PickupEvent2;
 
     private PlayerControls playerControls;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
-        playerControls.Player1.PickUp.performed += _ => PerformPickup();
-        playerControls.Player2.PickUp.performed += _ => PerformPickup();
+        playerControls.Player1.PickUp.performed += _ => PerformPickup1();
+        playerControls.Player2.PickUp.performed += _ => PerformPickup2();
     }
 
     private void OnEnable()
@@ -39,14 +41,26 @@ public class PickUp : MonoBehaviour
         playerControls.Disable();
     }
 
-    private void PerformPickup()
+    private void PerformPickup1()
     {
-        if (pickUpAllowed)
+        if (pickUpAllowed1)
         {
             // notifies all the subscribing classes, right now there is only one: Inventory
-            PickupEvent.Invoke(gameObject);
+            PickupEvent1.Invoke(gameObject);
 
-            pickUpAllowed = false;
+            pickUpAllowed1 = false;
+
+        }
+    }
+
+    private void PerformPickup2()
+    {
+        if (pickUpAllowed2)
+        {
+            // notifies all the subscribing classes, right now there is only one: Inventory
+            PickupEvent2.Invoke(gameObject);
+
+            pickUpAllowed2 = false;
 
         }
     }
@@ -58,17 +72,25 @@ public class PickUp : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player1"))
         {
-            pickUpAllowed = true;
+            pickUpAllowed1 = true;
+        }
+        if (collision.gameObject.CompareTag("Player2"))
+        {
+            pickUpAllowed2 = true;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player1"))
         {
-            pickUpAllowed = false;
+            pickUpAllowed1 = false;
+        }
+        if (collision.gameObject.CompareTag("Player2"))
+        {
+            pickUpAllowed2 = false;
         }
     }
 }
