@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // The class has a single responsibility of handling pickups
 // When the object is pickable or picked, it will notify other systems to take actions
@@ -19,16 +20,40 @@ public class PickUp : MonoBehaviour
     // a delegate that will observ the pickup
     public static event PickUpDelegate PickupEvent;
 
+    private PlayerControls playerControls;
+    private bool pickUp = false;
+
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+        playerControls.Player1.PickUp.performed += _ => PerformPickup();
+        playerControls.Player2.PickUp.performed += _ => PerformPickup();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
+    private void PerformPickup()
+    {
+        pickUp = true;
+    }
 
     private void Update()
     {
-        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        if (pickUpAllowed && pickUp)
         {
             // notifies all the subscribing classes, right now there is only one: Inventory
             PickupEvent.Invoke(gameObject);
-            PickUpItem();
 
             pickUpAllowed = false;
+            pickUp = false;
 
         }
     }
@@ -47,11 +72,4 @@ public class PickUp : MonoBehaviour
             pickUpAllowed = false;
         }
     }
-
-    private void PickUpItem()
-    {
-       //Does Nothing Yet
-    }
-
-
 }
