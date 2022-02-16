@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 78564625}
   m_Layer: 0
   m_Name: CropPatch
-  m_TagString: SpawnPatch
+  m_TagString: T3SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78564624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.6, y: 10.5, z: 0}
+  m_LocalPosition: {x: 1, y: 11.4, z: 0}
   m_LocalScale: {x: 10.0157, y: 4.6807, z: 1}
   m_Children:
   - {fileID: 58250915}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 188660814}
   m_Layer: 0
   m_Name: CropPatch_4
-  m_TagString: SpawnPatch
+  m_TagString: T1SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,7 +791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188660813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 4.8, z: 0}
+  m_LocalPosition: {x: -10.4, y: -30.9, z: 0}
   m_LocalScale: {x: 10.0157, y: 4.6807, z: 1}
   m_Children:
   - {fileID: 783871801}
@@ -2098,7 +2098,7 @@ Transform:
   m_GameObject: {fileID: 643316778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 50, y: 80, z: 1}
   m_Children: []
   m_Father: {fileID: 1138472990}
   m_RootOrder: 1
@@ -3099,7 +3099,7 @@ GameObject:
   - component: {fileID: 820121742}
   m_Layer: 0
   m_Name: CropPatch_3
-  m_TagString: SpawnPatch
+  m_TagString: T2SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3163,7 +3163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820121741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.8, y: 6.1, z: 0}
+  m_LocalPosition: {x: -10.9, y: -10.3, z: 0}
   m_LocalScale: {x: 10.0157, y: 4.6807, z: 1}
   m_Children:
   - {fileID: 286516015}
@@ -3990,12 +3990,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df26f7323f59cb44ab4c4e7c29bbff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  croplist:
-  - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
-  - {fileID: 3734496889178035889, guid: 80ecebbcffcf74d41b46039089be9097, type: 3}
+  Tier3Crops:
   - {fileID: 6844674759705574240, guid: 41fec6a26af1b6346933c515609af839, type: 3}
   - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
+  Tier2Crops:
+  - {fileID: 3734496889178035889, guid: 80ecebbcffcf74d41b46039089be9097, type: 3}
+  - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
+  Tier1Crops:
+  - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
   - {fileID: 2604841240390974244, guid: 8ca7ec85e96c2764fa5b88a7af93475d, type: 3}
+  respawnTimer: 0
 --- !u!4 &1123754144
 Transform:
   m_ObjectHideFlags: 0
@@ -5099,7 +5103,7 @@ GameObject:
   - component: {fileID: 1540912542}
   m_Layer: 0
   m_Name: CropPatch_5
-  m_TagString: SpawnPatch
+  m_TagString: T1SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5163,7 +5167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540912541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.3, y: 1.5, z: 0}
+  m_LocalPosition: {x: 14.7, y: -31, z: 0}
   m_LocalScale: {x: 10.0157, y: 4.6807, z: 1}
   m_Children:
   - {fileID: 268372134}
@@ -5415,7 +5419,7 @@ GameObject:
   - component: {fileID: 1657813398}
   m_Layer: 0
   m_Name: CropPatch_2
-  m_TagString: SpawnPatch
+  m_TagString: T2SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5479,7 +5483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657813397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.12, y: 13.4, z: 0}
+  m_LocalPosition: {x: 11.1, y: -10, z: 0}
   m_LocalScale: {x: 10.0157, y: 4.6807, z: 1}
   m_Children:
   - {fileID: 217404378}
@@ -5858,7 +5862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5734cd9d092db1469dd6fbc1d3ee773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inven_Panel_P1: {fileID: 987968234}
+  Inven_Panel: {fileID: 0}
 --- !u!114 &1940938700
 MonoBehaviour:
   m_ObjectHideFlags: 0

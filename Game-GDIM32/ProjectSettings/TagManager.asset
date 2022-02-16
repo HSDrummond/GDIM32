@@ -7,6 +7,9 @@ TagManager:
   - Crop
   - SpawnPatch
   - Animal
+  - T3SpawnPatch
+  - T2SpawnPatch
+  - T1SpawnPatch
   layers:
   - Default
   - TransparentFX
