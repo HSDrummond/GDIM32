@@ -7,17 +7,20 @@ public class CropManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> croplist = new List<GameObject>();
 
-    public float respawnTimer = 1.0f;
-    private float delayTime = 0.0f;
+    public float respawnTimer = 0.0f;
+    private float delayTime = 5.0f;
+    private bool StartTimer = false;
+    private GameObject RespawningItem;
+
     #region Notifications
     private void OnEnable()
     {
-        PickUp.PickupEvent += Respawn;
+        PickUp.PickupEvent += StartRespawn;
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
-        PickUp.PickupEvent -= Respawn;
+        PickUp.PickupEvent -= StartRespawn;
     }
     #endregion
 
@@ -43,16 +46,36 @@ public class CropManager : MonoBehaviour
         }
     }
 
-    public void Respawn(GameObject item)
+    public void Respawn()
     {
+        Debug.Log("Spawn");
+        RespawningItem.SetActive(true);
+
+    }
+
+    public void StartRespawn(GameObject item)
+    {
+
+        RespawningItem = item;
+        StartTimer = true;
+        Debug.Log("Start Timer");
+
+    }
+
+    public void Update()
+    {
+        if (respawnTimer > delayTime)
+        {
+            Respawn();
+            respawnTimer = 0.0f;
+            StartTimer = false;
+
+        }
+
+        if (StartTimer == true)
+        {
             respawnTimer += Time.deltaTime;
-            if (respawnTimer > delayTime)
-            {
-                var newObject = Instantiate(item, transform.position,
-                transform.rotation);
-                respawnTimer = 0.0f;
-            }
-        
+        }
     }
 
 }
