@@ -7,6 +7,20 @@ public class CropManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> croplist = new List<GameObject>();
 
+    public float respawnTimer = 1.0f;
+    private float delayTime = 0.0f;
+    #region Notifications
+    private void OnEnable()
+    {
+        PickUp.PickupEvent += Respawn;
+    }
+    // Unsubscribe for the pickup notification
+    private void OnDisable()
+    {
+        PickUp.PickupEvent -= Respawn;
+    }
+    #endregion
+
     void Start()
     {
         GameObject[] spawnPatches = GameObject.FindGameObjectsWithTag("SpawnPatch");
@@ -27,6 +41,18 @@ public class CropManager : MonoBehaviour
             croplist.RemoveAt(randomCrop);
             //Debug.Log("no repeats");
         }
+    }
+
+    public void Respawn(GameObject item)
+    {
+            respawnTimer += Time.deltaTime;
+            if (respawnTimer > delayTime)
+            {
+                var newObject = Instantiate(item, transform.position,
+                transform.rotation);
+                respawnTimer = 0.0f;
+            }
+        
     }
 
 }
