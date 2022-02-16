@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2950150854912063079}
   - component: {fileID: 2950150854912063076}
   - component: {fileID: 8323320313768267609}
-  - component: {fileID: 4236479223407613642}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Crop
@@ -95,10 +94,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.060500424}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.24}
+  m_Size: {x: 0.27, y: 0.11899913}
   m_EdgeRadius: 0
 --- !u!114 &8323320313768267609
 MonoBehaviour:
@@ -124,19 +123,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: -7523258173072266167, guid: 0966307780baa6e43af9d996955dbd8d, type: 3}
---- !u!58 &4236479223407613642
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950150854912063082}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
