@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 335749261}
   m_Layer: 0
   m_Name: CropPatch
-  m_TagString: SpawnPatch
+  m_TagString: T1SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: 606816430}
   m_Layer: 0
   m_Name: CropPatch_5
-  m_TagString: SpawnPatch
+  m_TagString: T2SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3802,7 +3802,7 @@ GameObject:
   - component: {fileID: 961903786}
   m_Layer: 0
   m_Name: CropPatch_3
-  m_TagString: SpawnPatch
+  m_TagString: T1SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4719,12 +4719,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df26f7323f59cb44ab4c4e7c29bbff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  croplist:
+  Tier3Crops:
   - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
-  - {fileID: 3734496889178035889, guid: 80ecebbcffcf74d41b46039089be9097, type: 3}
+  Tier2Crops:
   - {fileID: 6844674759705574240, guid: 41fec6a26af1b6346933c515609af839, type: 3}
-  - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
   - {fileID: 2604841240390974244, guid: 8ca7ec85e96c2764fa5b88a7af93475d, type: 3}
+  Tier1Crops:
+  - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
+  - {fileID: 3734496889178035889, guid: 80ecebbcffcf74d41b46039089be9097, type: 3}
   respawnTimer: 0
 --- !u!4 &1518240697
 Transform:
@@ -5695,7 +5697,7 @@ GameObject:
   - component: {fileID: 1755279348}
   m_Layer: 0
   m_Name: CropPatch_4
-  m_TagString: SpawnPatch
+  m_TagString: T3SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6261,7 +6263,7 @@ GameObject:
   - component: {fileID: 1960334072}
   m_Layer: 0
   m_Name: CropPatch_2
-  m_TagString: SpawnPatch
+  m_TagString: T2SpawnPatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
