@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 // The class has a single responsibility of handling pickups
 // When the object is pickable or picked, it will notify other systems to take actions
@@ -27,7 +28,13 @@ public class PickUp : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-        playerControls.Player1.PickUp.performed += _ => PerformPickup1();
+        playerControls.Player1.PickUp.performed += context =>
+        {
+            if (context.interaction is TapInteraction)
+            {
+                PerformPickup1();
+            }
+        };
         playerControls.Player2.PickUp.performed += _ => PerformPickup2();
     }
 

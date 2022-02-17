@@ -1,19 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class Inventory1 : MonoBehaviour
 {
-    
-    #region Singleton
 
     public static Inventory1 instance;
-    private void Awake()
-    {
-        instance = this;
-    }
-    #endregion
-    
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback = null;
@@ -22,15 +16,33 @@ public class Inventory1 : MonoBehaviour
 
     public List<GameObject> items = new List<GameObject>();
 
+    private PlayerControls playerControls;
+
+    private void Awake()
+    {
+        instance = this;
+
+        playerControls = new PlayerControls();
+        playerControls.Player1.PickUp.performed += context =>
+        {
+            if (context.interaction is HoldInteraction)
+            {
+                PerformRemoval1();
+            }
+        };
+    }
+
     #region Notifications
     private void OnEnable()
     {
         PickUp.PickupEvent1 += Add;
+        playerControls.Enable();
     }
     // Unsubscribe for the pickup notification
     private void OnDisable()
     {
         PickUp.PickupEvent1 -= Add;
+        playerControls.Disable();
     }
     #endregion
 
@@ -63,5 +75,18 @@ public class Inventory1 : MonoBehaviour
             onItemChangedCallback.Invoke();
         }
         
+    }
+
+    private void PerformRemoval1()
+    {
+        if (items.Count > 0)
+        {
+            items.RemoveAt(items.Count - 1);
+        }
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+        Debug.Log("removal performed");
     }
 }

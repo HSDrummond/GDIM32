@@ -106,7 +106,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""330fa708-eb7d-4455-8154-83437bb910b5"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Hold,Tap"",
+                    ""interactions"": ""Tap,Hold(duration=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PickUp"",

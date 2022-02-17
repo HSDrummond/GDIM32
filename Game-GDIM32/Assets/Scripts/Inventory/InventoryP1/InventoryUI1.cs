@@ -23,6 +23,7 @@ public class InventoryUI1 : MonoBehaviour
     void UpdateUI()
     {
         //Debug.Log(inventory.items.Count);
+        /*
         if (inventory.items.Count == 0)
         {
             foreach (var x in slots)
@@ -41,6 +42,20 @@ public class InventoryUI1 : MonoBehaviour
                 }
                 else
                     slots[i].ClearSlot();
+            }
+        }
+        */
+
+
+        slots[0].ClearSlot();
+        slots[1].ClearSlot();
+        slots[2].ClearSlot();
+
+        for (int i = 0; i < inventory.items.Count; ++i)
+        {
+            if (inventory.items[i] != null)
+            {
+                slots[i].AddItem(inventory.items[i]);
             }
         }
 
