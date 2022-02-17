@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Order2Slot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Image icon;
+
+    GameObject item;
+
+    public void AddItem(GameObject newItem)
     {
-        
+        item = newItem;
+
+        icon.sprite = item.GetComponent<SpriteRenderer>().sprite;
+        icon.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClearSlot()
     {
-        
+        item = null;
+
+        icon.sprite = null;
+        icon.enabled = false;
     }
 }

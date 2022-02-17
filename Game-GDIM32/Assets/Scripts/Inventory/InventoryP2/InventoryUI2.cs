@@ -21,15 +21,17 @@ public class InventoryUI2 : MonoBehaviour
 
     void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        slots[0].ClearSlot();
+        slots[1].ClearSlot();
+        slots[2].ClearSlot();
+
+        for (int i = 0; i < inventory.items.Count; ++i)
         {
-            if (i < inventory.items.Count)
+            if (inventory.items[i] != null)
             {
                 slots[i].AddItem(inventory.items[i]);
-                Debug.Log("Adding Item to Inventory2UI");
             }
-            else
-                slots[i].ClearSlot();
         }
+
     }
 }
