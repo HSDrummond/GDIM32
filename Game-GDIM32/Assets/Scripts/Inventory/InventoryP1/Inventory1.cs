@@ -41,6 +41,8 @@ public class Inventory1 : MonoBehaviour
             return;
         }
 
+        item.name = item.name.Replace("(Clone)", "");
+        Debug.Log(item.name);
         items.Add(item);
 
         if (onItemChangedCallback != null)
@@ -54,6 +56,16 @@ public class Inventory1 : MonoBehaviour
        
     }
 
+    public void ClearInventory1()
+    {
+        items.Clear();
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+        
+    }
+
     public void Remove(GameObject item)
     {
         items.Remove(item);
@@ -62,12 +74,5 @@ public class Inventory1 : MonoBehaviour
             onItemChangedCallback.Invoke();
 
         item.SetActive(true);
-
-       
-    }
-
-    public List<GameObject> GetInventory()
-    {
-        return items;
     }
 }

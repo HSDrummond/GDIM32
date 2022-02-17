@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class Order1 : MonoBehaviour
 {
-    #region Singleton
-
     public static Order1 instance;
-    private void Awake()
-    {
-        instance = this;
-    }
-    #endregion
 
     public delegate void OnOrderChanged();
     public OnOrderChanged onOrderChangedCallback = null;
@@ -31,6 +24,13 @@ public class Order1 : MonoBehaviour
 
     private bool OrderActive = false;
 
+
+    private void Awake()
+    {
+        instance = this;
+        inventory1 = Inventory1.instance;
+    }
+
     public void Update()
     {
         if(OrderActive == false)
@@ -40,22 +40,24 @@ public class Order1 : MonoBehaviour
         }
         else if(OrderActive == true)
         {
-            if(CheckOrder() == true)
+            // only checks if inventory is full
+            if (inventory1.items.Count == 3)
             {
-                //Need to implimetn interaction
-
-                //ClearInventory
-                ClearOrder();
-                OrderActive = false;
-                //OrderCompleted++
+                if (CheckOrder() == true)
+                {
+                    //Need to implimetn interaction
+                    inventory1.ClearInventory1();
+                    //ClearInventory
+                    ClearOrder();
+                    OrderActive = false;
+                    //OrderCompleted++
+                }
             }
         }
     }
 
     public void GenerateOrder()
     {
-        inventory1 = GetComponent<Inventory1>();
-
         int randomT3Crop = Random.Range(0, Tier3Crops.Count);
         int randomT2Crop = Random.Range(0, Tier2Crops.Count);
         int randomT1Crop = Random.Range(0, Tier1Crops.Count);
@@ -82,7 +84,6 @@ public class Order1 : MonoBehaviour
     public bool CheckOrder()
     {
         Debug.Log("Checking Simularity Order");
-        List<GameObject> CheckInventory = inventory1.GetInventory();
 
         //MUST CHANGE LIST OF GAME OBJECTS TO LIST OF NAMES
         //- For each thing in inventory script
@@ -91,8 +92,22 @@ public class Order1 : MonoBehaviour
         //- order[current_index].name
         //CHANGE INVENTORY LIST IN INVENTORY SCRIPT
         //COPY ALL THINGS FOR PLAYER 2
-        if (CompareLists(OrderListP1, CheckInventory))
+
+        List<string> OrderListP1Names = new List<string>();
+        List<string> inventory1Names = new List<string>();
+
+        foreach (var x in OrderListP1)
         {
+            OrderListP1Names.Add(x.name);
+        }
+        foreach (var x in inventory1.items)
+        {
+            inventory1Names.Add(x.name);
+        }
+
+        if (CompareLists(OrderListP1Names, inventory1Names))
+        {
+
             Debug.Log("They Equal");
             return true;
             
