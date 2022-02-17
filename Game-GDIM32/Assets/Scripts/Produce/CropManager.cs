@@ -5,13 +5,14 @@ using UnityEngine;
 public class CropManager : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> Tier3Crops = new List<GameObject>();
+    private List<GameObject> ActiveTier3Crops = new List<GameObject>();
 
     [SerializeField]
-    private List<GameObject> Tier2Crops = new List<GameObject>();
+    private List<GameObject> ActiveTier2Crops = new List<GameObject>();
 
     [SerializeField]
-    private List<GameObject> Tier1Crops = new List<GameObject>();
+    private List<GameObject> ActiveTier1Crops = new List<GameObject>();
+
 
     public float respawnTimer = 0.0f;
     private float delayTime = 5.0f;
@@ -38,14 +39,14 @@ public class CropManager : MonoBehaviour
         GameObject[] T3spawnPatches = GameObject.FindGameObjectsWithTag("T3SpawnPatch");
         foreach (GameObject patch in T3spawnPatches)
         {
-            int randomT3Crop = Random.Range(0, Tier3Crops.Count);
+            int randomT3Crop = Random.Range(0, ActiveTier3Crops.Count);
 
             foreach (Transform spawnPoint in patch.transform)
             {
 
-                Instantiate(Tier3Crops[randomT3Crop], spawnPoint.position, Quaternion.identity);
+                Instantiate(ActiveTier3Crops[randomT3Crop], spawnPoint.position, Quaternion.identity);
             }
-            Tier3Crops.RemoveAt(randomT3Crop);
+            ActiveTier3Crops.RemoveAt(randomT3Crop);
         }
         #endregion
 
@@ -53,14 +54,14 @@ public class CropManager : MonoBehaviour
         GameObject[] T2spawnPatches = GameObject.FindGameObjectsWithTag("T2SpawnPatch");
         foreach (GameObject patch in T2spawnPatches)
         {
-            int randomT2Crop = Random.Range(0, Tier2Crops.Count);
+            int randomT2Crop = Random.Range(0, ActiveTier2Crops.Count);
 
             foreach (Transform spawnPoint in patch.transform)
             {
 
-                Instantiate(Tier2Crops[randomT2Crop], spawnPoint.position, Quaternion.identity);
+                Instantiate(ActiveTier2Crops[randomT2Crop], spawnPoint.position, Quaternion.identity);
             }
-            Tier2Crops.RemoveAt(randomT2Crop);
+            ActiveTier2Crops.RemoveAt(randomT2Crop);
         }
         #endregion
 
@@ -68,14 +69,14 @@ public class CropManager : MonoBehaviour
         GameObject[] T1spawnPatches = GameObject.FindGameObjectsWithTag("T1SpawnPatch");
         foreach (GameObject patch in T1spawnPatches)
         {
-            int randomT1Crop = Random.Range(0, Tier1Crops.Count);
+            int randomT1Crop = Random.Range(0, ActiveTier1Crops.Count);
 
             foreach (Transform spawnPoint in patch.transform)
             {
 
-                Instantiate(Tier1Crops[randomT1Crop], spawnPoint.position, Quaternion.identity);
+                Instantiate(ActiveTier1Crops[randomT1Crop], spawnPoint.position, Quaternion.identity);
             }
-            Tier1Crops.RemoveAt(randomT1Crop);
+            ActiveTier1Crops.RemoveAt(randomT1Crop);
         }
         #endregion
     }
