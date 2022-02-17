@@ -41,6 +41,7 @@ public class Inventory1 : MonoBehaviour
             return;
         }
 
+
         item.name = item.name.Replace("(Clone)", "");
         //Debug.Log(item.name);
         items.Add(item);

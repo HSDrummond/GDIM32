@@ -72,11 +72,11 @@ public class PickUp : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player1"))
+        if (collision.gameObject.CompareTag("Player1") && (collision.GetComponent<Inventory1>().items.Count < collision.GetComponent<Inventory1>().space))
         {
             pickUpAllowed1 = true;
         }
-        if (collision.gameObject.CompareTag("Player2"))
+        if (collision.gameObject.CompareTag("Player2") && (collision.GetComponent<Inventory2>().items.Count < collision.GetComponent<Inventory2>().space))
         {
             pickUpAllowed2 = true;
         }

@@ -75,7 +75,7 @@ public class Order1 : MonoBehaviour
     public void ClearOrder()
     {
         OrderListP1.Clear();
-        Debug.Log("Clearing Order");
+        //Debug.Log("Clearing Order");
         if (onOrderChangedCallback != null)
         {
             onOrderChangedCallback.Invoke();
@@ -83,15 +83,7 @@ public class Order1 : MonoBehaviour
     }
     public bool CheckOrder()
     {
-        Debug.Log("Checking Simularity Order");
-
-        //MUST CHANGE LIST OF GAME OBJECTS TO LIST OF NAMES
-        //- For each thing in inventory script
-        //- inventory[current_index].name
-        //- For each thing in order script 
-        //- order[current_index].name
-        //CHANGE INVENTORY LIST IN INVENTORY SCRIPT
-        //COPY ALL THINGS FOR PLAYER 2
+        //Debug.Log("Checking Simularity Order");
 
         List<string> OrderListP1Names = new List<string>();
         List<string> inventory1Names = new List<string>();
@@ -108,13 +100,13 @@ public class Order1 : MonoBehaviour
         if (CompareLists(OrderListP1Names, inventory1Names))
         {
 
-            Debug.Log("They Equal");
+            //Debug.Log("They Equal");
             return true;
             
         }
         else
         {
-            Debug.Log("They wrong fool");
+            //Debug.Log("They wrong fool");
             return false;
         }
     }
