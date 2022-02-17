@@ -41,7 +41,7 @@ public class Order1 : MonoBehaviour
         else if(OrderActive == true)
         {
             // only checks if inventory is full
-            if (inventory1.items.Count == 3)
+            if (inventory1.items.Count == inventory1.space)
             {
                 if (CheckOrder() == true)
                 {

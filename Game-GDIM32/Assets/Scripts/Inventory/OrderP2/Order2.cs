@@ -28,6 +28,7 @@ public class Order2 : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Debug.Log(Inventory2.instance);
         inventory2 = Inventory2.instance;
     }
 
@@ -41,7 +42,7 @@ public class Order2 : MonoBehaviour
         else if (OrderActive == true)
         {
             // only checks if inventory is full
-            if (inventory2.items.Count == 3)
+            if (inventory2.items.Count == inventory2.space)
             {
                 if (CheckOrder() == true)
                 {

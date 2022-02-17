@@ -198,7 +198,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d0ff414d-0237-40e5-a057-908e9d7abd24"",
                     ""path"": ""<Keyboard>/slash"",
-                    ""interactions"": ""Hold,Tap"",
+                    ""interactions"": ""Tap,Hold(duration=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PickUp"",
