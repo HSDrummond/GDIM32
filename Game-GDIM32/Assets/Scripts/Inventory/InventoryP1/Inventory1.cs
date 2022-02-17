@@ -51,9 +51,7 @@ public class Inventory1 : MonoBehaviour
             Debug.Log("Invoking callback");
         }
 
-        item.SetActive(false);
 
-       
     }
 
     public void ClearInventory1()
@@ -64,15 +62,5 @@ public class Inventory1 : MonoBehaviour
             onItemChangedCallback.Invoke();
         }
         
-    }
-
-    public void Remove(GameObject item)
-    {
-        items.Remove(item);
-
-        if (onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
-
-        item.SetActive(true);
     }
 }

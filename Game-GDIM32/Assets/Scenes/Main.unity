@@ -4731,7 +4731,7 @@ MonoBehaviour:
   - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
   - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
   - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
-  respawnTimer: 0
+  respawnTimer: {fileID: 5385245065291722964, guid: 4f397b8667429f742b03b5ef80bbf52f, type: 3}
 --- !u!4 &1518240697
 Transform:
   m_ObjectHideFlags: 0

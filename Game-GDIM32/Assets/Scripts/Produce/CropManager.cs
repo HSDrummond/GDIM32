@@ -13,11 +13,8 @@ public class CropManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> ActiveTier1Crops = new List<GameObject>();
 
-
-    public float respawnTimer = 0.0f;
-    private float delayTime = 5.0f;
-    private bool StartTimer = false;
-    private GameObject RespawningItem;
+    [SerializeField] private GameObject respawnTimer;
+    private Dictionary<GameObject, GameObject> respawnTracker = new Dictionary<GameObject, GameObject>();
 
     #region Notifications
     private void OnEnable()
@@ -81,36 +78,46 @@ public class CropManager : MonoBehaviour
         #endregion
     }
 
-    public void Respawn()
-    {
-        Debug.Log("Spawn");
-        RespawningItem.SetActive(true);
-
-    }
 
     public void StartRespawn(GameObject item)
     {
+        item.GetComponent<SpriteRenderer>().enabled = false;
+        item.GetComponent<Collider2D>().enabled = false;
+        GameObject currentRespawnTimer = Instantiate(respawnTimer);
+        respawnTracker.Add(item, currentRespawnTimer);
 
-        RespawningItem = item;
-        StartTimer = true;
-        Debug.Log("Start Timer");
+        respawnTracker[item].GetComponent<Respawn>().StartRespawnTimer();
+    }
+    //
+    public void CheckRespawnTracker()
+    {
+        if (respawnTracker.Count > 0)
+        {
+            List<GameObject> finishedRespawnObjects = new List<GameObject>();
 
+            foreach (var pair in respawnTracker)
+            {
+                Debug.Log("Timer: " + pair.Value.GetComponent<Respawn>().CheckTimer());
+
+                if (pair.Value.GetComponent<Respawn>().CheckRespawn() == true)
+                {
+                    pair.Key.GetComponent<SpriteRenderer>().enabled = true;
+                    pair.Key.GetComponent<Collider2D>().enabled = true;
+
+                    finishedRespawnObjects.Add(pair.Key);
+                }
+            }
+
+            foreach (var obj in finishedRespawnObjects)
+            {
+                respawnTracker.Remove(obj);
+            }
+        }
     }
 
     public void Update()
     {
-        if (respawnTimer > delayTime)
-        {
-            Respawn();
-            respawnTimer = 0.0f;
-            StartTimer = false;
-
-        }
-
-        if (StartTimer == true)
-        {
-            respawnTimer += Time.deltaTime;
-        }
+        CheckRespawnTracker();
     }
 
 }
