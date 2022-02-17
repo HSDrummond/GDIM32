@@ -26,7 +26,7 @@ public class OrderUI1 : MonoBehaviour
             if (i < order1.OrderListP1.Count)
             {
                 slots[i].AddItem(order1.OrderListP1[i]);
-                Debug.Log("Adding Item to OrderListP1UI");
+                //Debug.Log("Adding Item to OrderListP1UI");
             }
             else
                 slots[i].ClearSlot();

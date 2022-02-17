@@ -42,13 +42,13 @@ public class Inventory1 : MonoBehaviour
         }
 
         item.name = item.name.Replace("(Clone)", "");
-        Debug.Log(item.name);
+        //Debug.Log(item.name);
         items.Add(item);
 
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
-            Debug.Log("Invoking callback");
+            //Debug.Log("Invoking callback");
         }
 
 

@@ -97,7 +97,7 @@ public class CropManager : MonoBehaviour
 
             foreach (var pair in respawnTracker)
             {
-                Debug.Log("Timer: " + pair.Value.GetComponent<Respawn>().CheckTimer());
+                //Debug.Log("Timer: " + pair.Value.GetComponent<Respawn>().CheckTimer());
 
                 if (pair.Value.GetComponent<Respawn>().CheckRespawn() == true)
                 {
