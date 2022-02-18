@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public static float currentTime;
-    float startingTime = 60f;
+    public float startingTime = 10f;
 
     [SerializeField] Text CountDownTimer;
-
-    private float timer; 
 
     // Start is called before the first frame update
     void Start()
