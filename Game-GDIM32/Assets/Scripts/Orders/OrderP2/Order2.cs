@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order1 : MonoBehaviour
+public class Order2 : MonoBehaviour
 {
-    public static Order1 instance;
+    public static Order2 instance;
+
+    private int completedOrders = 0;
 
     public delegate void OnOrderChanged();
     public OnOrderChanged onOrderChangedCallback = null;
@@ -18,9 +20,9 @@ public class Order1 : MonoBehaviour
     [SerializeField]
     private List<GameObject> Tier1Crops = new List<GameObject>();
 
-    public List<GameObject> OrderListP1 = new List<GameObject>();
+    public List<GameObject> OrderListP2 = new List<GameObject>();
 
-    Inventory1 inventory1;
+    Inventory2 inventory2;
 
     private bool OrderActive = false;
 
@@ -28,29 +30,29 @@ public class Order1 : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        inventory1 = Inventory1.instance;
+        Debug.Log(Inventory2.instance);
+        inventory2 = Inventory2.instance;
     }
 
     public void Update()
     {
-        if(OrderActive == false)
+        if (OrderActive == false)
         {
             GenerateOrder();
             OrderActive = true;
         }
-        else if(OrderActive == true)
+        else if (OrderActive == true)
         {
             // only checks if inventory is full
-            if (inventory1.items.Count == inventory1.space)
+            if (inventory2.items.Count == inventory2.space)
             {
                 if (CheckOrder() == true)
                 {
                     //Need to implimetn interaction
-                    inventory1.ClearInventory1();
-                    //ClearInventory
+                    inventory2.ClearInventory2();
                     ClearOrder();
                     OrderActive = false;
-                    //OrderCompleted++
+                    completedOrders += 1;
                 }
             }
         }
@@ -62,9 +64,9 @@ public class Order1 : MonoBehaviour
         int randomT2Crop = Random.Range(0, Tier2Crops.Count);
         int randomT1Crop = Random.Range(0, Tier1Crops.Count);
 
-        OrderListP1.Add(Tier3Crops[randomT3Crop]);
-        OrderListP1.Add(Tier2Crops[randomT2Crop]);
-        OrderListP1.Add(Tier1Crops[randomT1Crop]);
+        OrderListP2.Add(Tier3Crops[randomT3Crop]);
+        OrderListP2.Add(Tier2Crops[randomT2Crop]);
+        OrderListP2.Add(Tier1Crops[randomT1Crop]);
 
         if (onOrderChangedCallback != null)
         {
@@ -74,7 +76,7 @@ public class Order1 : MonoBehaviour
 
     public void ClearOrder()
     {
-        OrderListP1.Clear();
+        OrderListP2.Clear();
         //Debug.Log("Clearing Order");
         if (onOrderChangedCallback != null)
         {
@@ -85,30 +87,35 @@ public class Order1 : MonoBehaviour
     {
         //Debug.Log("Checking Simularity Order");
 
-        List<string> OrderListP1Names = new List<string>();
-        List<string> inventory1Names = new List<string>();
+        List<string> OrderListP2Names = new List<string>();
+        List<string> inventory2Names = new List<string>();
 
-        foreach (var x in OrderListP1)
+        foreach (var x in OrderListP2)
         {
-            OrderListP1Names.Add(x.name);
+            OrderListP2Names.Add(x.name);
         }
-        foreach (var x in inventory1.items)
+        foreach (var x in inventory2.items)
         {
-            inventory1Names.Add(x.name);
+            inventory2Names.Add(x.name);
         }
 
-        if (CompareLists(OrderListP1Names, inventory1Names))
+        if (CompareLists(OrderListP2Names, inventory2Names))
         {
 
             //Debug.Log("They Equal");
             return true;
-            
+
         }
         else
         {
             //Debug.Log("They wrong fool");
             return false;
         }
+    }
+
+    public int CheckCompletedOrders()
+    {
+        return completedOrders;
     }
 
     public static bool CompareLists<T>(List<T> aListA, List<T> aListB)
@@ -146,5 +153,4 @@ public class Order1 : MonoBehaviour
         // if there are remaining elements in the lookUp, that means ListA contains elements that do not exist in ListB
         return lookUp.Count == 0;
     }
-
 }

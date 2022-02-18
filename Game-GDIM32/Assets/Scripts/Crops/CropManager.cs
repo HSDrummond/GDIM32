@@ -40,7 +40,6 @@ public class CropManager : MonoBehaviour
 
             foreach (Transform spawnPoint in patch.transform)
             {
-
                 Instantiate(ActiveTier3Crops[randomT3Crop], spawnPoint.position, Quaternion.identity);
             }
             ActiveTier3Crops.RemoveAt(randomT3Crop);
