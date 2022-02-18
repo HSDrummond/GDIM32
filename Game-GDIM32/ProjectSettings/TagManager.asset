@@ -12,6 +12,7 @@ TagManager:
   - T1SpawnPatch
   - Player1
   - Player2
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
