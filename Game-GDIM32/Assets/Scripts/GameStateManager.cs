@@ -88,3 +88,5 @@ public class GameStateManager : MonoBehaviour
     }
     #endregion
 }
+
+//which functions are messing up?

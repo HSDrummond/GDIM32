@@ -23,6 +23,11 @@ public class DecideWinner : MonoBehaviour
         gameOverCanvas.SetActive(b);
     }
 
+    //public void ToggleGameWon(bool b)
+    //{
+    // gameWonCanvas.SetActive(b);
+    //}
+
     private void Update()
     {
         if (Timer.currentTime == 0)
