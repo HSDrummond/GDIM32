@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Idle : State
 {
-    public Idle(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
-        : base(_npc, _agent, _anim, _player)
+    public Idle(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
+        : base(_npc, _agent, _anim, _player, _animalStats)
     {
         name = STATE.IDLE;
     }
@@ -21,12 +21,12 @@ public class Idle : State
     {
         if (CanSeePlayer())
         {
-            nextState = new Pursue(npc, agent, anim, player);
+            nextState = new Pursue(npc, agent, anim, player, animalStats);
             stage = EVENT.EXIT;
         }
         else if(Random.Range(0,100) < 10)
         {
-            nextState = new Patrol(npc, agent, anim, player);
+            nextState = new Patrol(npc, agent, anim, player, animalStats);
             stage = EVENT.EXIT;
         }
     }

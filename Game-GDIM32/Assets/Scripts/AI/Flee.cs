@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Flee : State
 {
-    public Flee(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
-        : base(_npc, _agent, _anim, _player)
+    public Flee(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
+        : base(_npc, _agent, _anim, _player, _animalStats)
     {
         name = STATE.FLEE;
         agent.speed = 5;
@@ -27,7 +27,7 @@ public class Flee : State
         {
             if (!CanSeePlayer())
             {
-                nextState = new Wander(npc, agent, anim, player);
+                nextState = new Wander(npc, agent, anim, player, animalStats);
                 stage = EVENT.EXIT;
             }
         }

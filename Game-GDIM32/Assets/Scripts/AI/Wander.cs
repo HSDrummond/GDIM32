@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Wander : State
 {
-    public Wander(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
-        : base(_npc, _agent, _anim, _player)
+    public Wander(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
+        : base(_npc, _agent, _anim, _player, _animalStats)
     {
         name = STATE.FLEE;
         agent.speed = 2;
@@ -26,7 +26,7 @@ public class Wander : State
     {
         if (CanSeePlayer())
         {
-            nextState = new Flee(npc, agent, anim, player);
+            nextState = new Flee(npc, agent, anim, player, animalStats);
             stage = EVENT.EXIT;
         }
         else if (!CanSeePlayer())

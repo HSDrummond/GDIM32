@@ -22,19 +22,29 @@ public class State
     protected Transform player;
     protected State nextState;
     protected NavMeshAgent agent;
+    protected List<float> animalStats = new List<float>();
+    float visDist;
+    float visAngle;
+    float chargeDist;
+    float attackDist;
 
-    float visDist = 10.0f;
-    float visAngle = 30.0f;
-    float chargeDist = 7.0f;
-    float attackDist = 3.0f;
+    
 
-    public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
+
+
+    public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
     {
         npc = _npc;
         agent = _agent;
         anim = _anim;
         stage = EVENT.ENTER;
         player = _player;
+        animalStats = _animalStats;
+        visDist = _animalStats[0];
+        visAngle = _animalStats[1];
+        chargeDist = _animalStats[2];
+        attackDist = _animalStats[3];
+        //Dict would be better, right now not bullet proof
     }
 
     public virtual void Enter() { stage = EVENT.UPDATE; }

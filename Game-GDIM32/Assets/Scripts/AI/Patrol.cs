@@ -7,8 +7,8 @@ public class Patrol : State
 {
     int currentIndex = -1;
 
-    public Patrol(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
-        : base(_npc, _agent, _anim, _player)
+    public Patrol(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
+        : base(_npc, _agent, _anim, _player, _animalStats)
     {
         name = STATE.PATROL;
         agent.speed = 2;
@@ -45,7 +45,7 @@ public class Patrol : State
 
         if (CanSeePlayer())
         {
-            nextState = new Pursue(npc, agent, anim, player);
+            nextState = new Pursue(npc, agent, anim, player, animalStats);
             stage = EVENT.EXIT;
         }
     }

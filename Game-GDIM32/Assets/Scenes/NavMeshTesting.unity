@@ -7080,6 +7080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0586278214ea9e4690d8a339c3e20e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingTime: 10
   CountDownTimer: {fileID: 307228354}
 --- !u!114 &307228354
 MonoBehaviour:
@@ -55466,7 +55467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ba14e9511d02648a63d83704cdd52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScreen: {fileID: 2145961299}
 --- !u!114 &1613649537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55479,7 +55479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f27ccc134da68a41b190d6e8ebf9485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 1954710347}
 --- !u!114 &1613649538
 MonoBehaviour:
   m_ObjectHideFlags: 0
