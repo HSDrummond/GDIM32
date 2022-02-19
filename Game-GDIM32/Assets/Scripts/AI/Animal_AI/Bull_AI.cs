@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Bull_AI : MonoBehaviour
+public class Bull_AI : Animal
 {
-    NavMeshAgent agent;
+    /*NavMeshAgent agent;
     Animator anim;
     public Transform player;
     State currentState;
@@ -16,7 +16,7 @@ public class Bull_AI : MonoBehaviour
         anim = this.GetComponent<Animator>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        currentState = new Idle(this.gameObject, agent, anim, player);
+        currentState = new Idle(this.gameObject, agent, anim, player, animalStats);
 
     }
 
@@ -24,4 +24,5 @@ public class Bull_AI : MonoBehaviour
     {
         currentState = currentState.Process();
     }
+    */
 }
