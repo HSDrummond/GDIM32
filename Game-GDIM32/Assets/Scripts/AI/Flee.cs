@@ -20,12 +20,23 @@ public class Flee : State
     }
     public override void Update()
     {
-        //Vector3 targetDir = player.transform.position - this.transform.position;
-        //float lookAhead = targetDir.magnitude / (agent.speed + target.GetComponent<Drive>().currentSpeed);
-        //Flee(target.transform.position + target.transform.forward * lookAhead);
+        Vector3 FleeLocation = player.transform.position - npc.transform.position;
+        float lookAhead = FleeLocation.magnitude;
+        agent.SetDestination(player.transform.position + player.transform.forward * lookAhead);
+
         if (agent.hasPath)
         {
-            if (!CanSeePlayer())
+            if (PlayerHasFood())
+            {
+                nextState = new Approach(npc, agent, anim, player, animalStats);
+                stage = EVENT.EXIT;
+            }
+            else if (!IsPlayerBehind())
+            {
+                nextState = new Patrol(npc, agent, anim, player, animalStats);
+                stage = EVENT.EXIT;
+            }
+            else if (!CanSeePlayer())
             {
                 nextState = new Wander(npc, agent, anim, player, animalStats);
                 stage = EVENT.EXIT;

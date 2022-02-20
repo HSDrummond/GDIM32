@@ -13,7 +13,7 @@ public class Idle : State
 
     public override void Enter()
     {
-        //anim.SetTrigger("isWander");
+        //anim.SetTrigger("isEating");
         base.Enter();
     }
 
@@ -21,13 +21,21 @@ public class Idle : State
     {
         if (CanSeePlayer())
         {
-            nextState = new Pursue(npc, agent, anim, player, animalStats);
-            stage = EVENT.EXIT;
-        }
-        else if(Random.Range(0,100) < 10)
-        {
-            nextState = new Patrol(npc, agent, anim, player, animalStats);
-            stage = EVENT.EXIT;
+            if (npc.gameObject.tag == "Bull")
+            {
+                nextState = new Pursue(npc, agent, anim, player, animalStats);
+                stage = EVENT.EXIT;
+            }
+            else if (PlayerHasFood())
+            {
+                nextState = new Approach(npc, agent, anim, player, animalStats);
+                stage = EVENT.EXIT;
+            }
+            else
+            {
+                nextState = new Flee(npc, agent, anim, player, animalStats);
+                stage = EVENT.EXIT;
+            }
         }
     }
     public override void Exit()

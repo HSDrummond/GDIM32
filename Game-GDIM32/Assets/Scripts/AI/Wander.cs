@@ -8,7 +8,7 @@ public class Wander : State
     public Wander(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
         : base(_npc, _agent, _anim, _player, _animalStats)
     {
-        name = STATE.FLEE;
+        name = STATE.WANDER;
         agent.speed = 2;
         agent.isStopped = false;
         

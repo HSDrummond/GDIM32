@@ -7,7 +7,7 @@ public class State
 {
     public enum STATE
     {
-        IDLE, PATROL, PURSURE, ATTACK, FLEE, WANDER
+        IDLE, PATROL, PURSURE, ATTACK, FLEE, WANDER, APPROACH
     };
 
     public enum EVENT
@@ -28,9 +28,7 @@ public class State
     float chargeDist;
     float attackDist;
 
-    
-
-
+    Order1 order1;
 
     public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
     {
@@ -95,11 +93,33 @@ public class State
         return false;
     }
 
-
-    void Flee(Vector3 location)
+    public bool PlayerHasFood()
     {
+        List<string> InvenList = order1.GetInven();
+
+        if (InvenList.Contains("Corn") || InvenList.Contains("Wheat"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsPlayerBehind()
+    {
+        Vector3 direction = npc.transform.position - player.position;
+        float angle = Vector3.Angle(direction, npc.transform.forward);
+        if(direction.magnitude < 5 && angle < 30)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    //void Flee(Vector3 location)
+    //{
         //Vector3 fleeVector = location - this.transform.position;
         //agent.SetDestination(this.transform.position - fleeVector);
-    }
+    //}
 }
 

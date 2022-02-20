@@ -118,6 +118,17 @@ public class Order1 : MonoBehaviour
         return completedOrders;
     }
 
+    public List<string> GetInven()
+    {
+        List<string> inventory1Names = new List<string>();
+
+        foreach (var x in inventory1.items)
+        {
+            inventory1Names.Add(x.name);
+        }
+
+        return inventory1Names;
+    }
     public static bool CompareLists<T>(List<T> aListA, List<T> aListB)
     {
         if (aListA == null || aListB == null || aListA.Count != aListB.Count)

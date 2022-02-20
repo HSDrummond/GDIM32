@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4298228728443738965}
   - component: {fileID: 4298228728443738966}
   - component: {fileID: 4298228728443738967}
-  - component: {fileID: 4298228728443738960}
+  - component: {fileID: 1368057569204027459}
   m_Layer: 0
   m_Name: Bull
   m_TagString: Animal
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4298228728443738960
+--- !u!114 &1368057569204027459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,8 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4298228728443738971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0111e88471f22b41acf3dd973144ebd, type: 3}
+  m_Script: {fileID: 11500000, guid: 36dd9a4a400f97d4e849437f41d0cd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 5
+  player: {fileID: 0}
