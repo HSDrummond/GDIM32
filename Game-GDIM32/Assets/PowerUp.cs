@@ -11,11 +11,11 @@ public class PowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Pickup();
+            Pickup(other);
         }
     }
 
-    void Pickup()
+    void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
