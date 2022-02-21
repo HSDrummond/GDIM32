@@ -28,7 +28,7 @@ public class State
     float chargeDist;
     float attackDist;
 
-    Order1 order1;
+    //Order1 order1;
 
     public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
     {
@@ -95,7 +95,7 @@ public class State
 
     public bool PlayerHasFood()
     {
-        List<string> InvenList = order1.GetInven();
+        List<string> InvenList = Order1.instance.GetInven();
 
         if (InvenList.Contains("Corn") || InvenList.Contains("Wheat"))
         {
