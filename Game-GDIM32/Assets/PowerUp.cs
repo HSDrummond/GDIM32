@@ -5,6 +5,8 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
 
+    public float multiplier = 1.4f;
+
     public GameObject pickupEffect;
 
     void OnTriggerEnter(Collider other)
@@ -19,7 +21,7 @@ public class PowerUp : MonoBehaviour
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
-        //Apply effect to player
+        player.transform.localScale *= multiplier;
 
         Destroy(gameObject);
     }
