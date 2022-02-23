@@ -5,34 +5,44 @@ using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
-    NavMeshAgent agent;
-    Animator anim;
-    public Transform player;
-    State currentState;
+    protected float visDist;
+    protected float visAngle;
+    protected float chargeDist;
+    protected float attackDist;
 
-    float visDist = 10.0f;
-    float visAngle = 30.0f;
-    float chargeDist = 7.0f;
-    float attackDist = 3.0f;
+    public float VisDist { get { return visDist; } }
+    public float VisAngle { get { return visAngle; } }
+    public float ChargeDist { get { return chargeDist; } }
+    public float AttackDist { get { return attackDist; } }
 
-    private List<float> animalStats = new List<float>();
+    protected List<GameObject> checkpoints = new List<GameObject>();
+    public List<GameObject> Checkpoints { get { return checkpoints; } }
+
+    protected NavMeshAgent agent;
+    public NavMeshAgent Agent { get { return agent; } }
+
+    protected Animator anim;
+    public Animator Anim { get { return anim; } }
+
+    protected State currentState;
+    public State CurrentState { get { return currentState; } }
+
+    [SerializeField]
+    protected Transform player;
+
 
     void Start()
+    {
+        //Init();
+    }
+
+    protected virtual void Init()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        animalStats.Add(visDist);
-        animalStats.Add(visAngle);
-        animalStats.Add(chargeDist);
-        animalStats.Add(attackDist);
-        currentState = new Idle(gameObject, agent, anim, player, animalStats);
-    }
+    } 
 
-    void Update()
-    {
-        currentState = currentState.Process();
-        Debug.Log(currentState);
-    }
+    
 }

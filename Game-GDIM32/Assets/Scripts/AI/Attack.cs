@@ -7,8 +7,8 @@ public class Attack : State
 {
     float rotationSpeed = 2.0f;
     //AudioSource attack;
-    public Attack(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
-        : base(_npc, _agent, _anim, _player, _animalStats)
+    public Attack(Animal _npc, Transform _player)
+        : base(_npc, _player)
     {
         name = STATE.ATTACK;
         //attack = _npc.GetComponent<AudioSource>();
@@ -17,7 +17,7 @@ public class Attack : State
     public override void Enter()
     {
         //anim.SetTrigger("isShooting");
-        agent.isStopped = true;
+        npc.Agent.isStopped = true;
         //attack.Play();
         base.Enter();
     }
@@ -32,7 +32,7 @@ public class Attack : State
             Time.deltaTime * rotationSpeed);
         if (!CanAttackPlayer())
         {
-            nextState = new Idle(npc, agent, anim, player, animalStats);
+            nextState = new Idle(npc, player);
             stage = EVENT.EXIT;
         }
     }

@@ -7,12 +7,13 @@ public class Patrol : State
 {
     int currentIndex = -1;
 
-    public Patrol(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
-        : base(_npc, _agent, _anim, _player, _animalStats)
+    public Patrol(Animal _npc, Transform _player)
+        : base(_npc, _player)
     {
         name = STATE.PATROL;
-        agent.speed = 2;
-        agent.isStopped = false;
+        npc.Agent.speed = 2;
+        npc.Agent.isStopped = false;
+        
     }
 
     public override void Enter()
@@ -34,30 +35,30 @@ public class Patrol : State
 
     public override void Update()
     {
-        if(agent.remainingDistance < 1)
+        if(npc.Agent.remainingDistance < 1)
         {
             if (currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1)
                 currentIndex = 0;
             else
                 currentIndex++;
-            agent.SetDestination(GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);
+            npc.Agent.SetDestination(GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);
         }
 
         if (CanSeePlayer())
         {
             if (npc.gameObject.tag == "Bull")
             {
-                nextState = new Pursue(npc, agent, anim, player, animalStats);
+                nextState = new Pursue(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (PlayerHasFood())
             {
-                nextState = new Approach(npc, agent, anim, player, animalStats);
+                nextState = new Approach(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (!PlayerHasFood())
             {
-                nextState = new Flee(npc, agent, anim, player, animalStats);
+                nextState = new Flee(npc, player);
                 stage = EVENT.EXIT;
             }
         }

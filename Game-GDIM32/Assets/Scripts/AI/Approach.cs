@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class Approach : State
 {
-    public Approach(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
-        : base(_npc, _agent, _anim, _player, _animalStats)
+    public Approach(Animal _npc, Transform _player)
+        : base(_npc, _player)
     {
         name = STATE.APPROACH;
-        agent.speed = 1;
-        agent.isStopped = false;
+        npc.Agent.speed = 1;
+        npc.Agent.isStopped = false;
     }
 
     public override void Enter()
@@ -21,17 +21,17 @@ public class Approach : State
 
     public override void Update()
     {
-        agent.SetDestination(player.position);
-        if (agent.hasPath)
+        npc.Agent.SetDestination(player.position);
+        if (npc.Agent.hasPath)
         {
             if (!PlayerHasFood())
             {
-                nextState = new Flee(npc, agent, anim, player, animalStats);
+                nextState = new Flee(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (!CanSeePlayer())
             {
-                nextState = new Patrol(npc, agent, anim, player, animalStats);
+                nextState = new Patrol(npc, player);
                 stage = EVENT.EXIT;
             }
         }

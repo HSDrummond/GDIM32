@@ -17,31 +17,17 @@ public class State
 
     public STATE name;
     protected EVENT stage;
-    protected GameObject npc;
-    protected Animator anim;
+    protected Animal npc;
     protected Transform player;
     protected State nextState;
-    protected NavMeshAgent agent;
-    protected List<float> animalStats = new List<float>();
-    float visDist;
-    float visAngle;
-    float chargeDist;
-    float attackDist;
 
     //Order1 order1;
 
-    public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
+    public State(Animal _npc, Transform _player)
     {
         npc = _npc;
-        agent = _agent;
-        anim = _anim;
         stage = EVENT.ENTER;
         player = _player;
-        animalStats = _animalStats;
-        visDist = _animalStats[0];
-        visAngle = _animalStats[1];
-        chargeDist = _animalStats[2];
-        attackDist = _animalStats[3];
         name = STATE.IDLE;
         //Dict would be better, right now not bullet proof
     }
@@ -67,7 +53,7 @@ public class State
         Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, -npc.transform.right);
 
-        if(direction.magnitude < visDist && angle < visAngle)
+        if(direction.magnitude < npc.VisDist && angle < npc.VisAngle)
         {
             return true;
         }
@@ -77,7 +63,7 @@ public class State
     public bool CanChargePlayer()
     {
         Vector3 direction = player.position - npc.transform.position;
-        if(direction.magnitude < chargeDist)
+        if(direction.magnitude < npc.ChargeDist)
         {
             return true;
         }
@@ -87,7 +73,7 @@ public class State
     public bool CanAttackPlayer()
     {
         Vector3 direction = player.position - npc.transform.position;
-        if (direction.magnitude < attackDist)
+        if (direction.magnitude < npc.AttackDist)
         {
             return true;
         }
