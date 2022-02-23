@@ -6,6 +6,7 @@ public class PowerUpP2 : MonoBehaviour
 {
 
     public float multiplier = 1.4f;
+    public float duration = 4f;
 
     public GameObject pickupEffect;
 
@@ -17,13 +18,18 @@ public class PowerUpP2 : MonoBehaviour
         }
     }
 
-    void Pickup(Collider player)
+    IEnumerator Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         player.transform.localScale *= multiplier;
 
+        yield return new WaitForSeconds(duration);
+
+        player.transform.localScale /= multiplier;
+
         Destroy(gameObject);
     }
 
 }
+
