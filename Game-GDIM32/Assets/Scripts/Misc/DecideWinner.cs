@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DecideWinner : MonoBehaviour
 {
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
-    [SerializeField] private Text winnerDisplay;
+    [SerializeField] private TMP_Text winnerDisplay;
 
     [SerializeField] public GameObject pauseCanvas;
     [SerializeField] public GameObject gameOverCanvas;
