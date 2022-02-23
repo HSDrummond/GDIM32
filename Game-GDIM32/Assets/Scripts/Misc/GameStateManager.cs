@@ -56,12 +56,14 @@ public class GameStateManager : MonoBehaviour
         if (state == GameState.PLAYING && state != GameState.GAMEOVER)
         {
             state = GameState.PAUSED;
+            Time.timeScale = 0f;
             TogglePauseCanvas(true);
         }
         // paused
-        else if (state == GameState.PAUSED && state == GameState.GAMEOVER)
+        else if (state == GameState.PAUSED && state != GameState.GAMEOVER)
         {
             state = GameState.PLAYING;
+            Time.timeScale = 1f;
             TogglePauseCanvas(false);
         }
     }
