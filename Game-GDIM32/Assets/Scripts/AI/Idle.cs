@@ -21,7 +21,7 @@ public class Idle : State
     {
         if (CanSeePlayer())
         {
-            if (npc.gameObject.tag == "Bull")
+            if (npc.tag is "Bull")
             {
                 nextState = new Pursue(npc, agent, anim, player, animalStats);
                 stage = EVENT.EXIT;
