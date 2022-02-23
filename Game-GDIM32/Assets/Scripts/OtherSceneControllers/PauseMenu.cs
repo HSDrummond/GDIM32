@@ -11,11 +11,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
-    {
-        GameStateManager.instance.TogglePauseGame();
-    }
-
     public void TogglePause()
     {
         GameStateManager.instance.TogglePauseGame();

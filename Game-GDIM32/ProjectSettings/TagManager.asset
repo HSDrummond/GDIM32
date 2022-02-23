@@ -13,6 +13,8 @@ TagManager:
   - Player1
   - Player2
   - Checkpoint
+  - winnerObj
+  - Bull
   layers:
   - Default
   - TransparentFX

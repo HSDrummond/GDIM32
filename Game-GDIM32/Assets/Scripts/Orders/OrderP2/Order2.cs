@@ -22,7 +22,7 @@ public class Order2 : MonoBehaviour
 
     public List<GameObject> OrderListP2 = new List<GameObject>();
 
-    Inventory2 inventory2;
+    //Inventory2 inventory2;
 
     private bool OrderActive = false;
 
@@ -30,8 +30,8 @@ public class Order2 : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        Debug.Log(Inventory2.instance);
-        inventory2 = Inventory2.instance;
+        //Debug.Log(Inventory2.instance);
+        //inventory2 = Inventory2.instance;
     }
 
     public void Update()
@@ -44,12 +44,12 @@ public class Order2 : MonoBehaviour
         else if (OrderActive == true)
         {
             // only checks if inventory is full
-            if (inventory2.items.Count == inventory2.space)
+            if (Inventory2.instance.items.Count == Inventory2.instance.space)
             {
                 if (CheckOrder() == true)
                 {
                     //Need to implimetn interaction
-                    inventory2.ClearInventory2();
+                    Inventory2.instance.ClearInventory2();
                     ClearOrder();
                     OrderActive = false;
                     completedOrders += 1;
@@ -94,7 +94,7 @@ public class Order2 : MonoBehaviour
         {
             OrderListP2Names.Add(x.name);
         }
-        foreach (var x in inventory2.items)
+        foreach (var x in Inventory2.instance.items)
         {
             inventory2Names.Add(x.name);
         }

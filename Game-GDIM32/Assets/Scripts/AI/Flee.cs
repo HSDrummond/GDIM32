@@ -20,9 +20,9 @@ public class Flee : State
     }
     public override void Update()
     {
-        Vector3 FleeLocation = player.transform.position - npc.transform.position;
-        float lookAhead = FleeLocation.magnitude;
-        agent.SetDestination(player.transform.position + player.transform.forward * lookAhead);
+        //Vector3 FleeDirection = npc.transform.position - player.transform.position;
+        //float lookAhead = FleeDirection.magnitude;
+        agent.SetDestination(npc.transform.position - player.transform.position);
 
         if (agent.hasPath)
         {

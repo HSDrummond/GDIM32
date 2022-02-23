@@ -7,7 +7,7 @@ public class State
 {
     public enum STATE
     {
-        IDLE, PATROL, PURSURE, ATTACK, FLEE, WANDER, APPROACH
+        IDLE, PATROL, PURSUE, ATTACK, FLEE, WANDER, APPROACH
     };
 
     public enum EVENT
@@ -28,7 +28,7 @@ public class State
     float chargeDist;
     float attackDist;
 
-    Order1 order1;
+    //Order1 order1;
 
     public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
     {
@@ -42,6 +42,7 @@ public class State
         visAngle = _animalStats[1];
         chargeDist = _animalStats[2];
         attackDist = _animalStats[3];
+        name = STATE.IDLE;
         //Dict would be better, right now not bullet proof
     }
 
@@ -64,7 +65,7 @@ public class State
     public bool CanSeePlayer()
     {
         Vector3 direction = player.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
+        float angle = Vector3.Angle(direction, -npc.transform.right);
 
         if(direction.magnitude < visDist && angle < visAngle)
         {
@@ -95,7 +96,7 @@ public class State
 
     public bool PlayerHasFood()
     {
-        List<string> InvenList = order1.GetInven();
+        List<string> InvenList = Order1.instance.GetInven();
 
         if (InvenList.Contains("Corn") || InvenList.Contains("Wheat"))
         {

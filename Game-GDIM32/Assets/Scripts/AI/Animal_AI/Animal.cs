@@ -19,20 +19,20 @@ public class Animal : MonoBehaviour
 
     void Start()
     {
-        agent = this.GetComponent<NavMeshAgent>();
-        anim = this.GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         animalStats.Add(visDist);
         animalStats.Add(visAngle);
         animalStats.Add(chargeDist);
         animalStats.Add(attackDist);
-        currentState = new Idle(this.gameObject, agent, anim, player, animalStats);
-
+        currentState = new Idle(gameObject, agent, anim, player, animalStats);
     }
 
     void Update()
     {
         currentState = currentState.Process();
+        Debug.Log(currentState);
     }
 }

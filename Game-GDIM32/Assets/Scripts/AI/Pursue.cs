@@ -8,7 +8,7 @@ public class Pursue : State
     public Pursue(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
        : base(_npc, _agent, _anim, _player, _animalStats)
     {
-        name = STATE.PURSURE;
+        name = STATE.PURSUE;
         agent.speed = 5;
         agent.isStopped = false;
     }

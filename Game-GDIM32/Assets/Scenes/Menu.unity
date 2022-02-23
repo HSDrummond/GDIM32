@@ -939,7 +939,6 @@ GameObject:
   m_Component:
   - component: {fileID: 627184962}
   - component: {fileID: 627184961}
-  - component: {fileID: 627184963}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -956,7 +955,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 627184960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9ac304da5775f4dbc49e58904a6ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d000f08bbf508246bf2d9fa1341d2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
@@ -974,21 +973,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &627184963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627184960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75bcae6a4d953744b95d1be7187464f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 9214649415978307884, guid: 4b53dede7f15e2b409ec0fa56c1542c0, type: 3}
-  pausedCanvas: {fileID: 2902731567489128616, guid: d9deb5c60a8985a489ac0c7fa0f6c74a, type: 3}
-  paused: 0
 --- !u!1 &687352619
 GameObject:
   m_ObjectHideFlags: 0

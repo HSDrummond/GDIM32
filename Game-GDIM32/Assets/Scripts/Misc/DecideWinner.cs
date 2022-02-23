@@ -2,38 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DecideWinner : MonoBehaviour
 {
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
-    [SerializeField] private Text winnerDisplay;
+    [SerializeField] private TMP_Text winnerDisplay;
 
-    [SerializeField] private GameObject pauseCanvas;
-    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] public GameObject pauseCanvas;
+    [SerializeField] public GameObject gameOverCanvas;
 
-    public void TogglePauseCanvas(bool b)
-    {
-        pauseCanvas.SetActive(b);
-    }
-
-    public void ToggleGameOverCanvas(bool b)
-    {
-        gameOverCanvas.SetActive(b);
-    }
-
-    //public void ToggleGameWon(bool b)
-    //{
-    // gameWonCanvas.SetActive(b);
-    //}
+    private bool gameOver = false;
 
     private void Update()
     {
-        if (Timer.currentTime == 0)
+        if (Timer.currentTime == 0 && !gameOver)
         {
-            winnerDisplay.text = ReturnWinnerText();
+            gameOver = true;
             GameStateManager.instance.EndGame();
+            winnerDisplay.text = ReturnWinnerText();
         }
     }
 

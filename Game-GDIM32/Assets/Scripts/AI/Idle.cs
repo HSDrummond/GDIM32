@@ -21,7 +21,7 @@ public class Idle : State
     {
         if (CanSeePlayer())
         {
-            if (npc.gameObject.tag == "Bull")
+            if (npc.tag is "Bull")
             {
                 nextState = new Pursue(npc, agent, anim, player, animalStats);
                 stage = EVENT.EXIT;
@@ -37,10 +37,16 @@ public class Idle : State
                 stage = EVENT.EXIT;
             }
         }
+        else
+        {
+            //Timer
+            nextState = new Patrol(npc, agent, anim, player, animalStats);
+            stage = EVENT.EXIT;
+        }
     }
     public override void Exit()
     {
-        //anim.ResetTrigger("isWander");
+        //anim.ResetTrigger("isIdle");
         base.Exit();
     }
 }
