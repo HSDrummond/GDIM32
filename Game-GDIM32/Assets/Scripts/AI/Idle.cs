@@ -46,7 +46,7 @@ public class Idle : State
     }
     public override void Exit()
     {
-        //anim.ResetTrigger("isWander");
+        //anim.ResetTrigger("isIdle");
         base.Exit();
     }
 }

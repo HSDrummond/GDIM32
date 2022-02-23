@@ -42,6 +42,7 @@ public class State
         visAngle = _animalStats[1];
         chargeDist = _animalStats[2];
         attackDist = _animalStats[3];
+        name = STATE.IDLE;
         //Dict would be better, right now not bullet proof
     }
 
@@ -64,7 +65,7 @@ public class State
     public bool CanSeePlayer()
     {
         Vector3 direction = player.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
+        float angle = Vector3.Angle(direction, -npc.transform.right);
 
         if(direction.magnitude < visDist && angle < visAngle)
         {
