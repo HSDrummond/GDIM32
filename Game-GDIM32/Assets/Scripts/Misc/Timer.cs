@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
+        currentTime -= Time.deltaTime;
         DisplayTime(currentTime);
 
         if(currentTime <= 0)
@@ -30,8 +30,6 @@ public class Timer : MonoBehaviour
 
     void DisplayTime( float currentTime)
     {
-        currentTime += 1;
-
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 

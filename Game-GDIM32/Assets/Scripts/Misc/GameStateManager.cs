@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
-    private SceneMaster sceneMaster;
+    //private SceneMaster sceneMaster;
 
     private void Awake()
     {
@@ -21,8 +23,8 @@ public class GameStateManager : MonoBehaviour
         }
 
         // equip scene master
-        sceneMaster = GetComponent<SceneMaster>();
-        Debug.Log(sceneMaster);
+        //sceneMaster = GetComponent<SceneMaster>();
+        //Debug.Log(sceneMaster != null);
 
         // begin states
         StartApplication();
@@ -46,39 +48,44 @@ public class GameStateManager : MonoBehaviour
     public void StartNewGame()
     {
         state = GameState.PLAYING;
-        sceneMaster.ToGameplayScene();
+        ToGameplayScene();
     }
     public void TogglePauseGame()
     {
         // not paused
-        if (state == GameState.PLAYING)
+        if (state == GameState.PLAYING && state != GameState.GAMEOVER)
         {
             state = GameState.PAUSED;
-            sceneMaster.TogglePauseCanvas(true);
+            TogglePauseCanvas(true);
         }
         // paused
-        else if (state == GameState.PAUSED)
+        else if (state == GameState.PAUSED && state == GameState.GAMEOVER)
         {
             state = GameState.PLAYING;
-            sceneMaster.TogglePauseCanvas(false);
+            TogglePauseCanvas(false);
         }
     }
     public void EndGame()
     {
+        if (state == GameState.PAUSED)
+        {
+            TogglePauseCanvas(false);
+        }
+
         state = GameState.GAMEOVER;
-        sceneMaster.ActivateGameOverCanvas();
+        ActivateGameOverCanvas();
     }
     public void ExitToMenu()
     {
         if (state == GameState.PAUSED)
         {
-            sceneMaster.DeactivateGameOverCanvas();
+            DeactivateGameOverCanvas();
         }
         else if (state == GameState.GAMEOVER)
         {
-            sceneMaster.DeactivateGameOverCanvas();
+            DeactivateGameOverCanvas();
         }
-        sceneMaster.ToMenuScene();
+        ToMenuScene();
         state = GameState.MENU;
     }
     public void QuitApplication()
@@ -87,6 +94,34 @@ public class GameStateManager : MonoBehaviour
         Application.Quit();
     }
     #endregion
-}
 
-//which functions are messing up?
+    #region scene stuff
+    public void ToGameplayScene()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    public void TogglePauseCanvas(bool b)
+    {
+        GameObject.FindGameObjectWithTag("winnerObj").GetComponent<DecideWinner>().pauseCanvas.SetActive(b);
+    }
+
+    public void ActivateGameOverCanvas()
+    {
+
+        GameObject.FindGameObjectWithTag("winnerObj").GetComponent<DecideWinner>().gameOverCanvas.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void DeactivateGameOverCanvas()
+    {
+        Time.timeScale = 1f;
+        GameObject.FindGameObjectWithTag("winnerObj").GetComponent<DecideWinner>().gameOverCanvas.SetActive(false);
+    }
+
+
+    public void ToMenuScene()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    #endregion
+}

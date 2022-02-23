@@ -15,23 +15,6 @@ public class DecideWinner : MonoBehaviour
 
     private bool gameOver = false;
 
-    
-    public void TogglePauseCanvas(bool b)
-    {
-        pauseCanvas.SetActive(b);
-    }
-
-    public void ToggleGameOverCanvas(bool b)
-    {
-        gameOverCanvas.SetActive(b);
-    }
-    
-
-    //public void ToggleGameWon(bool b)
-    //{
-    // gameWonCanvas.SetActive(b);
-    //}
-
     private void Update()
     {
         if (Timer.currentTime == 0 && !gameOver)
