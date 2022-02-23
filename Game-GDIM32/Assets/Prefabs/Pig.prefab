@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 1984145702434568501}
   - component: {fileID: 1984145702434568503}
   - component: {fileID: 1733904365381138252}
-  - component: {fileID: 286993086}
   - component: {fileID: 3849534148373788444}
   - component: {fileID: 150169406}
   m_Layer: 0
@@ -217,19 +216,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.24}
   m_EdgeRadius: 0
---- !u!114 &286993086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984145702434568491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55dd2c4a8e3f19742baf5b1ff4f855a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
 --- !u!114 &3849534148373788444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +237,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984145702434568491}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 0
   m_Radius: 0.19
   m_Speed: 3.5
   m_Acceleration: 8
