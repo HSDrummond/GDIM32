@@ -6,29 +6,34 @@ using UnityEngine.SceneManagement;
 public class SceneMaster : MonoBehaviour
 {
     public bool paused = false;
-    private DecideWinner winnerDecider;
+    private DecideWinner winnerObj;
+    //private GameObject pauseCanvas;
 
     #region functions for switching scenes
     public void ToGameplayScene()
     {
         SceneManager.LoadScene("Main");
+        winnerObj = FindObjectOfType<DecideWinner>();
+        //pauseCanvas = FindObjectOfType<DecideWinner>().pauseCanvas;
     }
+
     public void TogglePauseCanvas(bool b)
     {
-        winnerDecider.TogglePauseCanvas(b);
+        winnerObj.TogglePauseCanvas(b);
     }
 
     public void ActivateGameOverCanvas()
     {
-        winnerDecider.ToggleGameOverCanvas(true);
+        winnerObj.ToggleGameOverCanvas(true);
         Time.timeScale = 0f;
     }
 
     public void DeactivateGameOverCanvas()
     {
         Time.timeScale = 1f;
-        winnerDecider.ToggleGameOverCanvas(false);
+        winnerObj.ToggleGameOverCanvas(false);
     }
+    
 
     public void ToMenuScene()
     {

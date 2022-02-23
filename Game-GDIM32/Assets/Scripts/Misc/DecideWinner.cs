@@ -10,9 +10,12 @@ public class DecideWinner : MonoBehaviour
 
     [SerializeField] private Text winnerDisplay;
 
-    [SerializeField] private GameObject pauseCanvas;
-    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] public GameObject pauseCanvas;
+    [SerializeField] public GameObject gameOverCanvas;
 
+    private bool gameOver = false;
+
+    
     public void TogglePauseCanvas(bool b)
     {
         pauseCanvas.SetActive(b);
@@ -22,6 +25,7 @@ public class DecideWinner : MonoBehaviour
     {
         gameOverCanvas.SetActive(b);
     }
+    
 
     //public void ToggleGameWon(bool b)
     //{
@@ -30,10 +34,11 @@ public class DecideWinner : MonoBehaviour
 
     private void Update()
     {
-        if (Timer.currentTime == 0)
+        if (Timer.currentTime == 0 && !gameOver)
         {
-            winnerDisplay.text = ReturnWinnerText();
+            gameOver = true;
             GameStateManager.instance.EndGame();
+            winnerDisplay.text = ReturnWinnerText();
         }
     }
 
