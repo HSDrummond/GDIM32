@@ -15,6 +15,12 @@ TagManager:
   - Checkpoint
   - winnerObj
   - Bull
+  - PigCP
+  - FishCP
+  - DuckCP
+  - ChickCP
+  - CowCP
+  - BullCP
   layers:
   - Default
   - TransparentFX

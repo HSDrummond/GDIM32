@@ -19,9 +19,9 @@ public class Patrol : State
     public override void Enter()
     {
         float lastDist = Mathf.Infinity;
-        for (int i = 0; i < GameEnvironment.Singleton.Checkpoints.Count; i++)
+        for (int i = 0; i < npc.Checkpoints.Count; i++)
         {
-            GameObject thisWP = GameEnvironment.Singleton.Checkpoints[i];
+            GameObject thisWP = npc.Checkpoints[i];
             float distance = Vector3.Distance(npc.transform.position, thisWP.transform.position);
             if(distance < lastDist)
             {
@@ -37,11 +37,11 @@ public class Patrol : State
     {
         if(npc.Agent.remainingDistance < 1)
         {
-            if (currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1)
+            if (currentIndex >= npc.Checkpoints.Count - 1)
                 currentIndex = 0;
             else
                 currentIndex++;
-            npc.Agent.SetDestination(GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);
+            npc.Agent.SetDestination(npc.Checkpoints[currentIndex].transform.position);
         }
 
         if (CanSeePlayer())

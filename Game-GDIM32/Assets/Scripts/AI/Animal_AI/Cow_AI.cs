@@ -10,7 +10,7 @@ public class Cow_AI : Animal
     {
         Init();
         checkpoints.AddRange(
-                    GameObject.FindGameObjectsWithTag("Checkpoint"));
+                    GameObject.FindGameObjectsWithTag("CowCP"));
     }
 
     protected override void Init()

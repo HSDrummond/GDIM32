@@ -5,24 +5,26 @@ using UnityEngine.AI;
 
 public class Bull_AI : Animal
 {
-    /*NavMeshAgent agent;
-    Animator anim;
-    public Transform player;
-    State currentState;
-
-    void Start()
+    private void Start()
     {
-        agent = this.GetComponent<NavMeshAgent>();
-        anim = this.GetComponent<Animator>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        currentState = new Idle(this.gameObject, agent, anim, player, animalStats);
+        Init();
+        checkpoints.AddRange(
+                    GameObject.FindGameObjectsWithTag("BullCP"));
+    }
 
+    protected override void Init()
+    {
+        base.Init();
+        currentState = new Idle(this, player);
+        visDist = 10.0f;
+        visAngle = 30.0f;
+        chargeDist = 7.0f;
+        attackDist = 3.0f;
     }
 
     void Update()
     {
         currentState = currentState.Process();
+        Debug.Log(currentState);
     }
-    */
 }
