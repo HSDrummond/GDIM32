@@ -7725,6 +7725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duck
       objectReference: {fileID: 0}
+    - target: {fileID: 22002828484881145, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
 --- !u!4 &327708966 stripped
@@ -8166,6 +8170,10 @@ PrefabInstance:
     - target: {fileID: 6157621713397757973, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
       propertyPath: m_Name
       value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157621713397757973, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6157621713397757974, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
       propertyPath: m_RootOrder
@@ -61270,6 +61278,10 @@ PrefabInstance:
       value: Bull
       objectReference: {fileID: 0}
     - target: {fileID: 4298228728443738971, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298228728443738971, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
       propertyPath: m_TagString
       value: Bull
       objectReference: {fileID: 0}
@@ -65490,6 +65502,10 @@ PrefabInstance:
     - target: {fileID: 1984145702434568491, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
       propertyPath: m_Name
       value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984145702434568491, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3849534148373788444, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
       propertyPath: player

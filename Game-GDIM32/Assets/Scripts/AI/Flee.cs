@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class Flee : State
 {
-    public Flee(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
-        : base(_npc, _agent, _anim, _player, _animalStats)
+    public Flee(Animal _npc, Transform _player)
+        : base(_npc, _player)
     {
         name = STATE.FLEE;
-        agent.speed = 5;
-        agent.isStopped = false;
+        npc.Agent.speed = 5;
+        npc.Agent.isStopped = false;
     }
 
     public override void Enter()
@@ -22,23 +22,23 @@ public class Flee : State
     {
         //Vector3 FleeDirection = npc.transform.position - player.transform.position;
         //float lookAhead = FleeDirection.magnitude;
-        agent.SetDestination(npc.transform.position - player.transform.position);
+        npc.Agent.SetDestination(npc.transform.position - player.transform.position);
 
-        if (agent.hasPath)
+        if (npc.Agent.hasPath)
         {
             if (PlayerHasFood())
             {
-                nextState = new Approach(npc, agent, anim, player, animalStats);
+                nextState = new Approach(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (!IsPlayerBehind())
             {
-                nextState = new Patrol(npc, agent, anim, player, animalStats);
+                nextState = new Patrol(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (!CanSeePlayer())
             {
-                nextState = new Wander(npc, agent, anim, player, animalStats);
+                nextState = new Wander(npc, player);
                 stage = EVENT.EXIT;
             }
         }

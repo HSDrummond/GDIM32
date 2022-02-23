@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class Pursue : State
 {
-    public Pursue(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player, List<float> _animalStats)
-       : base(_npc, _agent, _anim, _player, _animalStats)
+    public Pursue(Animal _npc, Transform _player)
+        : base(_npc, _player)
     {
         name = STATE.PURSUE;
-        agent.speed = 5;
-        agent.isStopped = false;
+        npc.Agent.speed = 5;
+        npc.Agent.isStopped = false;
     }
 
     public override void Enter()
@@ -20,17 +20,17 @@ public class Pursue : State
     }
     public override void Update()
     {
-        agent.SetDestination(player.position);
-        if (agent.hasPath)
+        npc.Agent.SetDestination(player.position);
+        if (npc.Agent.hasPath)
         {
             if (CanAttackPlayer())
             {
-                nextState = new Attack(npc, agent, anim, player, animalStats);
+                nextState = new Attack(npc, player);
                 stage = EVENT.EXIT;
             }
             else if (!CanSeePlayer())
             {
-                nextState = new Patrol(npc, agent, anim, player, animalStats);
+                nextState = new Patrol(npc, player);
                 stage = EVENT.EXIT;
             }
         }
