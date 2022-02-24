@@ -6,7 +6,8 @@ When the game begins, boths players are tasked with a 3 item order! Navigate the
 find the items that you need! Make sure you watch out for the farm animals, some of them
 might be aggressive! Whichever player completes the most orders when the timer runs out wins!
 
-At the current iteration, use the arrow keys or WASD to move around and press E to pick up crops or animals. You have 60 seconds to collect 5. Right now you need to re-run the program every time since the game freezes when load back in after winning once.The lose screen is just sending you back to the main screen
+
+Crops in the tree is intentional. Right now it is whooever completes the most amount of orders within the timelimit. You can not pick up animals yet but they do wander, run away, and approach when you have corn or wheat. The bull will pursue you if it sees you but can not attack you. walking over tomato plants causes you to grow while pumpkins shink you. Be careful to balance walking over these so you will be able to cross the bridges. 
 
 Controls:
 Player 1 uses WASD to move, E tap to pick up items, and E hold to drop your most currently picked up item.
@@ -19,9 +20,11 @@ When the game starts, a timer starts for 60 seconds.
 
 Deliverables:
 
-1. Game has a menu to start the game
-2. You can win by collecting 5 crops and lose by running out of time
-3. 2 Families are the crops which spawn on patches and animals that chase after you.
-- Assets are almost done but not implemented
-4. In game UI that displays the timer and the amount of both families picked up
+1. Your game should allow for local multiplayer with at least 2 players.
+- 2 Players each with their own systems working
 
+2. Your game should have implemented at least 2 autonomous agents that move and exhibit distinct choices or sequences of actions. Examples would be choosing to fight or flee depending on some data, animals that search for food with some kind of strategy but change behavior when given food or flee from different animals or the player. The real goal here is that you implement one of the following: a finite state machine, a behavior tree or goal oriented action planning.
+- FSM controlling all the animals and bull. All animals have diffrent state and bulls state machine is built alongside the others. Using the 2D Navmesh plugin was an trip
+
+3. Optionally your game can have an option to have an AI replace one of the players (either opponent or co-op player)
+- Will not have an AI replace yet but we seperated the player scripts (i.e order and inventory) so it will be easier to do so when we get there. 
