@@ -1,3 +1,4 @@
+//InventoryUI2: Hunter
 using UnityEngine;
 
 public class InventoryUI2 : MonoBehaviour

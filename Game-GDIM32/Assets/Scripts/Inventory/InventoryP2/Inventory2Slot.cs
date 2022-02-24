@@ -1,3 +1,4 @@
+//Inventory2Slots: Clay
 using UnityEngine;
 using UnityEngine.UI;
 
