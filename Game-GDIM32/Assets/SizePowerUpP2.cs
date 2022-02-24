@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SizePowerUpP2 : MonoBehaviour
+public class SizePowerUp2 : MonoBehaviour
 {
 
     public float multiplier = 1.4f;
@@ -14,7 +14,7 @@ public class SizePowerUpP2 : MonoBehaviour
     {
         if (other.CompareTag("Player2"))
         {
-            Pickup(other);
+            StartCoroutine(Pickup(other));
         }
     }
 
@@ -32,4 +32,3 @@ public class SizePowerUpP2 : MonoBehaviour
     }
 
 }
-
