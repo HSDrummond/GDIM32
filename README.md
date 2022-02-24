@@ -1,8 +1,21 @@
-Name Pending...
+Farming Frenzy
 
-A two player competitive, light-hearted, and fun farming game where players are tasked with completing as many orders as possible to win the game, while also having ways to mess up the opposing player trying to complete their own orders. We have a variety of both crops (corn, tomatoes, melons, etc.) and animals (pigs, cows, chickens, etc.) that can be used by the player to gather specific items the merchants may need to fulfill orders. The goal of the game/win condition is to complete as many orders as you possibly can while doing your best to inhibit the other player from doing the same thing. We have a variety of sickles within the game that can be used to disrupt and grab other players as well as other objects to add another element of fun and spontaneity. Each player also has a timer, which adds an element of stress and forces them to move as quickly as possible in order to beat the other player. This also encourages messing up their opponent as much as possible to add to the competitive nature of the game. The outcome is such that you put them at a disadvantage by giving them less time to complete their orders, potentially sabotaging them.  
+Elevator Pitch:
+Farming Frenzy is a 2 player, local muliplayer, competitive top-down farming simulator game!
+When the game begins, boths players are tasked with a 3 item order! Navigate the farm and
+find the items that you need! Make sure you watch out for the farm animals, some of them
+might be aggressive! Whichever player completes the most orders when the timer runs out wins!
 
 At the current iteration, use the arrow keys or WASD to move around and press E to pick up crops or animals. You have 60 seconds to collect 5. Right now you need to re-run the program every time since the game freezes when load back in after winning once.The lose screen is just sending you back to the main screen
+
+Controls:
+Player 1 uses WASD to move, E tap to pick up items, and E hold to drop your most currently picked up item.
+Player 2 uses Arrow Keys to move, / tap to pick up items, and / hold to drop your most currently picked up item.
+
+Rules:
+Player 1 is on the left and Player 2 are on the right.
+When the game starts, a timer starts for 60 seconds.
+
 
 Deliverables:
 
