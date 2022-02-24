@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//CameraControl: Shiloh
+using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {

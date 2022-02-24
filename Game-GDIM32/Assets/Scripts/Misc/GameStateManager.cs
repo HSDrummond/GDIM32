@@ -1,3 +1,4 @@
+//GameStateManager: Duncan/Clay/Kiana
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
