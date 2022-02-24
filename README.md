@@ -7,13 +7,13 @@ find the items that you need! Make sure you watch out for the farm animals, some
 might be aggressive! Whichever player completes the most orders when the timer runs out wins!
 
 *Note*
-Crops in the tree is intentional. Right now it is whooever completes the most amount of orders
-within the timelimit. You can not pick up animals yet but they do wander, run away, and approach 
-when you have corn or wheat. The bull will pursue you if it sees you but can not attack you. 
-walking over tomato plants causes you to grow while pumpkins shink you. Be careful to balance 
-walking over these so you will be able to cross the bridges. 
+- Crops in the tree is intentional.
+- You can not pick up animals yet but they do wander, run away, and approach when you have corn or wheat.
+- The bull will pursue you if it sees you but can not attack you. 
+*ANIMAL VISION IS A CONE TO THE LEFT*
+- walking over tomato plants causes you to grow while pumpkins shink you.
 *A lot of these design decision were made with the intention of a future implemented tool that
-can be used for interacting with the other players, animals, and certain crops.
+can be used for interacting with the other players, animals, and certain crops.*
 
 Controls:
 Player 1 uses WASD to move, E tap to pick up items, and E hold to drop your most currently picked up item.
