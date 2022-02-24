@@ -14,7 +14,7 @@ public class SizePowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            Pickup(other);
+            StartCoroutine( Pickup(other) );
         }
     }
 
