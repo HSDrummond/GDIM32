@@ -6,7 +6,6 @@ public class SizePowerUpP2 : MonoBehaviour
 {
 
     public float multiplier = 1.4f;
-    public float duration = 4f;
 
     public GameObject pickupEffect;
 
@@ -14,19 +13,15 @@ public class SizePowerUpP2 : MonoBehaviour
     {
         if (other.CompareTag("Player2"))
         {
-            StartCoroutine( Pickup(other) );
+            Pickup(other);
         }
     }
 
-    IEnumerator Pickup(Collider player)
+    void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         player.transform.localScale *= multiplier;
-
-        yield return new WaitForSeconds(duration);
-
-        player.transform.localScale /= multiplier;
 
         Destroy(gameObject);
     }
