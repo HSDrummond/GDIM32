@@ -24,7 +24,7 @@ public class SizePowerUp : MonoBehaviour
 
         player.transform.localScale /= multiplier;
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 }
