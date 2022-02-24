@@ -79083,8 +79083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4682bd362805e544937da4a7a627f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1245798518}
-  player2: {fileID: 0}
+  player1: {fileID: 775294281}
+  player2: {fileID: 1245798518}
   winnerDisplay: {fileID: 432687342}
   pauseCanvas: {fileID: 816698664}
   gameOverCanvas: {fileID: 1899064007}
