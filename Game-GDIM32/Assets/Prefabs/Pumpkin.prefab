@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2950150854912063079}
   - component: {fileID: 2950150854912063076}
   - component: {fileID: 8323320313768267609}
+  - component: {fileID: 2964791633925398606}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Crop
@@ -123,3 +124,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: -7523258173072266167, guid: 0966307780baa6e43af9d996955dbd8d, type: 3}
+--- !u!114 &2964791633925398606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950150854912063082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cdc0017911a2f44a7fad937e0095fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.5
+  duration: 4
