@@ -8789,7 +8789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac23615e0fb0046b0925e2085cac96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTime: 10
+  startingTime: 60
   CountDownTimer: {fileID: 242343491}
 --- !u!114 &242343491
 MonoBehaviour:
@@ -20781,18 +20781,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298283379}
     m_Modifications:
-    - target: {fileID: 327708969, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
-      propertyPath: m_AgentTypeID
-      value: -334000983
-      objectReference: {fileID: 0}
     - target: {fileID: 327708970, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 775294283}
-    - target: {fileID: 1221240080, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 22002828484881144, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -20840,10 +20832,6 @@ PrefabInstance:
     - target: {fileID: 22002828484881145, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
       propertyPath: m_Name
       value: Duck
-      objectReference: {fileID: 0}
-    - target: {fileID: 22002828484881145, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caea7e07714df254ba7e27fa20b81100, type: 3}
@@ -21439,6 +21427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298283379}
     m_Modifications:
+    - target: {fileID: 1925155022, guid: d3f422df397ca3e489203fed94973807, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7180552536332893922, guid: d3f422df397ca3e489203fed94973807, type: 3}
       propertyPath: m_Name
       value: Cow (1)
@@ -21669,10 +21661,6 @@ PrefabInstance:
     - target: {fileID: 1984145702434568491, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
       propertyPath: m_Name
       value: Pig
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984145702434568491, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3849534148373788444, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
       propertyPath: player
@@ -31101,21 +31089,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 775294283}
-    - target: {fileID: 441924996, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441924996, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6157621713397757973, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
       propertyPath: m_Name
       value: Chicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 6157621713397757973, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157621713397757974, guid: adb1c743d6fa00e4991153e2e2bb7b53, type: 3}
       propertyPath: m_RootOrder
@@ -74867,20 +74843,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4298228728443738967, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4298228728443738971, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
       propertyPath: m_Name
-      value: Bull
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298228728443738971, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298228728443738971, guid: 4d807f16b222e5d46954b93d38ca4660, type: 3}
-      propertyPath: m_TagString
       value: Bull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -76116,6 +76080,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298283379}
     m_Modifications:
+    - target: {fileID: 330550011, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1984145702434568490, guid: ac621f1b90a688845aac60a8135e3708, type: 3}
       propertyPath: m_RootOrder
       value: 4

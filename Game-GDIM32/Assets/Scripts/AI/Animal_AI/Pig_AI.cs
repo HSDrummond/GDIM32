@@ -25,6 +25,6 @@ public class Pig_AI : Animal
     void Update()
     {
         currentState = currentState.Process();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 }
