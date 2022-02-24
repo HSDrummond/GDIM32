@@ -14,19 +14,15 @@ public class SizePowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine( Pickup(other) );
+            Pickup(other);
         }
     }
 
-    IEnumerator Pickup(Collider player)
+    void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         player.transform.localScale *= multiplier;
-
-        yield return new WaitForSeconds(duration);
-
-        player.transform.localScale /= multiplier;
 
         Destroy(gameObject);
     }
