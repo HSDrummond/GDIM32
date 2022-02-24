@@ -94,8 +94,7 @@ GameObject:
   - component: {fileID: -1549099504164767325}
   - component: {fileID: 3235474127808785448}
   - component: {fileID: 5559771259192870162}
-  - component: {fileID: 3399638309080917955}
-  - component: {fileID: -9038631150819961294}
+  - component: {fileID: -484713635495958964}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Crop
@@ -200,7 +199,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0051748813, y: 0}
   serializedVersion: 2
   m_Radius: 0.07156019
---- !u!114 &3399638309080917955
+--- !u!114 &-484713635495958964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,19 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 1.4
-  pickupEffect: {fileID: 0}
---- !u!114 &-9038631150819961294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2604841240390974244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb3d927f0be6ff4ba8fda4bf577a996, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  duration: 4
 --- !u!1 &4716714825668069477
 GameObject:
   m_ObjectHideFlags: 0

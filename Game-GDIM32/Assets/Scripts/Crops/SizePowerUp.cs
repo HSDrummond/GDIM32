@@ -2,26 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SizePowerUpP2 : MonoBehaviour
+public class SizePowerUp : MonoBehaviour
 {
-
     public float multiplier = 1.4f;
     public float duration = 4f;
 
-    public GameObject pickupEffect;
-
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player2"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            Pickup(other);
+            StartCoroutine(Pickup(other));
         }
     }
 
-    IEnumerator Pickup(Collider player)
+    IEnumerator Pickup(Collider2D player)
     {
-        Instantiate(pickupEffect, transform.position, transform.rotation);
-
         player.transform.localScale *= multiplier;
 
         yield return new WaitForSeconds(duration);
@@ -32,4 +27,3 @@ public class SizePowerUpP2 : MonoBehaviour
     }
 
 }
-
