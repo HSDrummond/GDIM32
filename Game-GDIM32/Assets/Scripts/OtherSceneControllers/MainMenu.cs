@@ -4,9 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayButton()
+    public void PlayPlayerButton()
     {
-        GameStateManager.instance.StartNewGame();
+        GameStateManager.instance.StartNewPlayerGame();
+    }
+
+    public void PlayAIButton()
+    {
+        GameStateManager.instance.StartNewAIGame();
     }
 
     public void QuitButton()

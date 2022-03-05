@@ -8,7 +8,11 @@ using UnityEngine.SceneManagement;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
-    //private SceneMaster sceneMaster;
+
+    // Scene Indexes
+    // 0: menu
+    // 1: player vs player
+    // 2: player vs ai
 
     private void Awake()
     {
@@ -46,11 +50,18 @@ public class GameStateManager : MonoBehaviour
     {
         state = GameState.MENU;
     }
-    public void StartNewGame()
+    public void StartNewPlayerGame()
     {
         state = GameState.PLAYING;
-        ToGameplayScene();
+        SceneManager.LoadScene(1);
     }
+
+    public void StartNewAIGame()
+    {
+        state = GameState.PLAYING;
+        SceneManager.LoadScene(1);
+    }
+
     public void TogglePauseGame()
     {
         // not paused
@@ -88,7 +99,7 @@ public class GameStateManager : MonoBehaviour
         {
             DeactivateGameOverCanvas();
         }
-        ToMenuScene();
+        SceneManager.LoadScene(0);
         state = GameState.MENU;
     }
     public void QuitApplication()
@@ -97,12 +108,7 @@ public class GameStateManager : MonoBehaviour
         Application.Quit();
     }
     #endregion
-
-    #region scene stuff
-    public void ToGameplayScene()
-    {
-        SceneManager.LoadScene("Main");
-    }
+    #region canvas stuff
     public void TogglePauseCanvas(bool b)
     {
         GameObject.FindGameObjectWithTag("winnerObj").GetComponent<DecideWinner>().pauseCanvas.SetActive(b);
@@ -119,12 +125,6 @@ public class GameStateManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameObject.FindGameObjectWithTag("winnerObj").GetComponent<DecideWinner>().gameOverCanvas.SetActive(false);
-    }
-
-
-    public void ToMenuScene()
-    {
-        SceneManager.LoadScene("Menu");
     }
     #endregion
 }
