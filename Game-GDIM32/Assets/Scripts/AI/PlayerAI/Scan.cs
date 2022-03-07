@@ -10,15 +10,14 @@ public class Scan : PlayerState
             : base(_enemy)
     {
         name = PSTATE.SCAN;
-        enemy.Agent.speed = 0;
-        enemy.Agent.isStopped = true;
+        enemy.Agent.speed = 5;
+        enemy.Agent.isStopped = false;
     }
 
     public override void Enter()
     {
         //anim.SetTrigger("isStopped");
         target = enemy.gameObject;
-
         foreach (GameObject objective in enemy.Objectives)
         {
             objective.name = objective.name.Replace("(Clone)", "");
@@ -32,6 +31,8 @@ public class Scan : PlayerState
                 }
             }
         }
+        base.Enter();
+        
     }
     public override void Update()
     {

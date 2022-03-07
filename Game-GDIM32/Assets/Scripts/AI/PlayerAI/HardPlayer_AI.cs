@@ -24,6 +24,6 @@ public class HardPlayer_AI : Player
     void Update()
     {
         currentState = currentState.Process();
-        //Debug.Log(currentState);
+        Debug.Log(currentState);
     }
 }
