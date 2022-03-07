@@ -61,7 +61,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void PerformPickup2()
+    public void PerformPickup2()
     {
         if (pickUpAllowed2)
         {
