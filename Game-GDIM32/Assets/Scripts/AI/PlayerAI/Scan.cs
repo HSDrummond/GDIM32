@@ -9,17 +9,30 @@ public class Scan : PlayerState
     public Scan(Player _enemy)
             : base(_enemy)
     {
-        name = PSTATE.SCAN;
+        name = STATE.SCAN;
         enemy.Agent.speed = 5;
         enemy.Agent.isStopped = false;
     }
 
     public override void Enter()
     {
+        enemy.Objectives.AddRange(
+            GameObject.FindGameObjectsWithTag("Crop"));
+        enemy.Objectives.AddRange(
+                    GameObject.FindGameObjectsWithTag("Animal"));
+
+        foreach (var x in enemy.Objectives)
+        {
+            Debug.Log("objective list index " + enemy.Objectives.IndexOf(x) + ": " + x);
+        }
         //anim.SetTrigger("isStopped");
-        target = enemy.gameObject;
+        Debug.Log("Scan Enter target:" + target);
+        target = GameObject.FindGameObjectWithTag("farthestTarget");
+        Debug.Log("Scan Enter target:" + target);
+
         foreach (GameObject objective in enemy.Objectives)
         {
+            Debug.Log("POTENTIAL OBJECTIVE:" + objective);
             objective.name = objective.name.Replace("(Clone)", "");
             if (enemy.UpdateOrder().Contains(objective))
             {
@@ -27,6 +40,7 @@ public class Scan : PlayerState
                 if (Vector3.Distance(objective.transform.position, enemy.transform.position) <
                    Vector3.Distance(target.transform.position, enemy.transform.position))
                 {
+                    Debug.Log("NEW OBJECTIVE: " + objective);
                     target = objective;
                 }
             }

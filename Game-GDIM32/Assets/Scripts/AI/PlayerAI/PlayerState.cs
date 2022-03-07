@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerState : MonoBehaviour
+public class PlayerState
 {
-    public enum PSTATE
+    public enum STATE
     {
         GATHER, SCAN, TRAVEL
     };
@@ -16,7 +16,7 @@ public class PlayerState : MonoBehaviour
         ENTER, UPDATE, EXIT
     };
 
-    public PSTATE name;
+    public STATE name;
     protected EVENT stage;
     protected Player enemy;
     protected PlayerState nextState;
@@ -28,7 +28,8 @@ public class PlayerState : MonoBehaviour
     {
         enemy = _enemy;
         stage = EVENT.ENTER;
-        name = PSTATE.SCAN;
+        name = STATE.SCAN;
+        target = GameObject.FindGameObjectWithTag("farthestTarget");
     }
 
     public virtual void Enter() { stage = EVENT.UPDATE; }
@@ -37,6 +38,7 @@ public class PlayerState : MonoBehaviour
 
     public PlayerState Process()
     {
+        Debug.Log("PlayerState Process target: " + target);
         if (stage == EVENT.ENTER) Enter();
         if (stage == EVENT.UPDATE) Update();
         if (stage == EVENT.EXIT)

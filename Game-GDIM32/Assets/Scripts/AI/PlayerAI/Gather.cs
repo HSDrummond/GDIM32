@@ -9,7 +9,7 @@ public class Gather : PlayerState
     public Gather(Player _enemy)
            : base(_enemy)
     {
-        name = PSTATE.GATHER;
+        name = STATE.GATHER;
         enemy.Agent.speed = 0;
         enemy.Agent.isStopped = true;
     }
@@ -19,9 +19,9 @@ public class Gather : PlayerState
         //anim.SetTrigger("isStopped");
         base.Enter();
     }
+
     public override void Update()
     {
-        
         if (target.Equals(null))
         {
             nextState = new Scan(enemy);
@@ -38,7 +38,6 @@ public class Gather : PlayerState
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
-        
     }
 
 

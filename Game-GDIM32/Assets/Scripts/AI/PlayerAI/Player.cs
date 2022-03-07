@@ -36,7 +36,8 @@ public class Player : MonoBehaviour
 
     public List<GameObject> UpdateOrder()
     {
-        return orderList = GetComponent<Order2>().OrderListP2;
+        orderList = GetComponent<Order2>().OrderListP2;
+        return orderList;
     }
 
 

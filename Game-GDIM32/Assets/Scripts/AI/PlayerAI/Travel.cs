@@ -9,7 +9,7 @@ public class Travel : PlayerState
     public Travel(Player _enemy)
            : base(_enemy)
     {
-        name = PSTATE.TRAVEL;
+        name = STATE.TRAVEL;
         enemy.Agent.speed = 5;
         enemy.Agent.isStopped = false;
     }
@@ -21,6 +21,7 @@ public class Travel : PlayerState
     }
     public override void Update()
     {
+        Debug.Log("Travel Update target: " + target);
         enemy.Agent.SetDestination(target.transform.position);
         if (enemy.Agent.hasPath)
         {

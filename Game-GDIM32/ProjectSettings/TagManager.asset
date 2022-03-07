@@ -21,6 +21,7 @@ TagManager:
   - ChickCP
   - CowCP
   - BullCP
+  - farthestTarget
   layers:
   - Default
   - TransparentFX

@@ -9,10 +9,6 @@ public class HardPlayer_AI : Player
     private void Start()
     {
         Init();
-        objectives.AddRange(
-                    GameObject.FindGameObjectsWithTag("Crop"));
-        objectives.AddRange(
-                    GameObject.FindGameObjectsWithTag("Animal"));
     }
 
     protected override void Init()
