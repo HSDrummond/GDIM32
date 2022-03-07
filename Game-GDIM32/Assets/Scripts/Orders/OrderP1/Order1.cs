@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Order1 : MonoBehaviour
 {
+    [SerializeField] OrderScoreboard scoreboard;
+
     public static Order1 instance;
 
     private int completedOrders = 0;
@@ -54,6 +56,7 @@ public class Order1 : MonoBehaviour
                     ClearOrder();
                     OrderActive = false;
                     completedOrders += 1;
+                    scoreboard.UpdateScoreboard(completedOrders);
                 }
             }
         }
