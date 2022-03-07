@@ -59,7 +59,7 @@ public class GameStateManager : MonoBehaviour
     public void StartNewAIGame()
     {
         state = GameState.PLAYING;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void TogglePauseGame()
