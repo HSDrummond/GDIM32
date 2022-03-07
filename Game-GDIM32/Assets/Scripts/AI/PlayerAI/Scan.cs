@@ -6,45 +6,55 @@ using UnityEngine.AI;
 
 public class Scan : PlayerState
 {
-    public Scan(Player _enemy)
+    public Scan(HardPlayer_AI _enemy)
             : base(_enemy)
     {
         name = STATE.SCAN;
         enemy.Agent.speed = 5;
         enemy.Agent.isStopped = false;
+        
+        Debug.Log("ScanState: " + enemy.Target);
     }
 
     public override void Enter()
     {
-        enemy.Objectives.AddRange(
+        List<GameObject> tempScan = new List<GameObject>();
+
+        tempScan.AddRange(
             GameObject.FindGameObjectsWithTag("Crop"));
-        enemy.Objectives.AddRange(
-                    GameObject.FindGameObjectsWithTag("Animal"));
+        tempScan.AddRange(
+            GameObject.FindGameObjectsWithTag("Animal"));
 
-        foreach (var x in enemy.Objectives)
+        enemy.Objectives.Clear();
+        foreach (var x in tempScan)
         {
-            Debug.Log("objective list index " + enemy.Objectives.IndexOf(x) + ": " + x);
+            enemy.Objectives.Add(new KeyValuePair<string, GameObject>(x.name.Replace("(Clone)", ""), x));
         }
-        //anim.SetTrigger("isStopped");
-        Debug.Log("Scan Enter target:" + target);
-        target = GameObject.FindGameObjectWithTag("farthestTarget");
-        Debug.Log("Scan Enter target:" + target);
 
-        foreach (GameObject objective in enemy.Objectives)
+        //anim.SetTrigger("isStopped");
+
+        if (enemy.Target == null)
         {
-            Debug.Log("POTENTIAL OBJECTIVE:" + objective);
-            objective.name = objective.name.Replace("(Clone)", "");
-            if (enemy.UpdateOrder().Contains(objective))
+            enemy.Target = GameObject.FindGameObjectWithTag("farthestTarget");
+        }
+
+        enemy.UpdateOrder();
+        foreach (KeyValuePair<string, GameObject> objective in enemy.Objectives)
+        {
+            if (enemy.orderList.Contains(objective.Key))
             {
                 //Check the current order and see if the objective is closer then the previous objective
-                if (Vector3.Distance(objective.transform.position, enemy.transform.position) <
-                   Vector3.Distance(target.transform.position, enemy.transform.position))
+                if (Vector3.Distance(objective.Value.transform.position, enemy.transform.position) <
+                   Vector3.Distance(enemy.Target.transform.position, enemy.transform.position))
                 {
-                    Debug.Log("NEW OBJECTIVE: " + objective);
-                    target = objective;
+                    //Debug.Log("POTENTIAL OBJECTIVE:" + objective);
+                    enemy.Target = objective.Value;
                 }
             }
         }
+
+        Debug.Log("NEW OBJECTIVE: " + enemy.Target);
+
         base.Enter();
         
     }

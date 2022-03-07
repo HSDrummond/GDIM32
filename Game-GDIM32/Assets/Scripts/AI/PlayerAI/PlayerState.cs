@@ -18,18 +18,16 @@ public class PlayerState
 
     public STATE name;
     protected EVENT stage;
-    protected Player enemy;
+    protected HardPlayer_AI enemy;
     protected PlayerState nextState;
-    protected GameObject target;
 
     //Order1 order1;
 
-    public PlayerState(Player _enemy)
+    public PlayerState(HardPlayer_AI _enemy)
     {
         enemy = _enemy;
         stage = EVENT.ENTER;
         name = STATE.SCAN;
-        target = GameObject.FindGameObjectWithTag("farthestTarget");
     }
 
     public virtual void Enter() { stage = EVENT.UPDATE; }
@@ -38,7 +36,6 @@ public class PlayerState
 
     public PlayerState Process()
     {
-        Debug.Log("PlayerState Process target: " + target);
         if (stage == EVENT.ENTER) Enter();
         if (stage == EVENT.UPDATE) Update();
         if (stage == EVENT.EXIT)

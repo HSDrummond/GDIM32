@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Gather : PlayerState
 {
-    public Gather(Player _enemy)
+    public Gather(HardPlayer_AI _enemy)
            : base(_enemy)
     {
         name = STATE.GATHER;
@@ -22,19 +22,21 @@ public class Gather : PlayerState
 
     public override void Update()
     {
-        if (target.Equals(null))
+        if (enemy.Target.Equals(null))
         {
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
-        else if (!enemy.transform.position.Equals(target.transform.position))
+        else if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) > 0.2f)
         {
             nextState = new Travel(enemy);
             stage = EVENT.EXIT;
         }
         else
         {
-            target.GetComponent<PickUp>().PerformPickup2();
+            enemy.Target.GetComponent<PickUp>().PerformPickup2();
+            enemy.orderList.Remove(enemy.Target.name);
+            enemy.Target = null;
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }

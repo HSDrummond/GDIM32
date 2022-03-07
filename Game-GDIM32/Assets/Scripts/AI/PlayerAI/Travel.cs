@@ -6,12 +6,14 @@ using UnityEngine.AI;
 
 public class Travel : PlayerState
 {
-    public Travel(Player _enemy)
+    public Travel(HardPlayer_AI _enemy)
            : base(_enemy)
     {
         name = STATE.TRAVEL;
         enemy.Agent.speed = 5;
         enemy.Agent.isStopped = false;
+
+        Debug.Log("TravelState: " + enemy.Target);
     }
 
     public override void Enter()
@@ -21,20 +23,26 @@ public class Travel : PlayerState
     }
     public override void Update()
     {
-        Debug.Log("Travel Update target: " + target);
-        enemy.Agent.SetDestination(target.transform.position);
+        //Debug.Log("distance" + Vector2.Distance(enemy.Target.transform.position, enemy.transform.position));
+        //Debug.Log("Travel Update target: " + enemy.Target);
+        enemy.Agent.SetDestination(enemy.Target.transform.position);
         if (enemy.Agent.hasPath)
         {
-            if (target.Equals(null))
+            if (enemy.Target.Equals(null))
             {
+                //Debug.Log("Target is null");
                 nextState = new Scan(enemy);
                 stage = EVENT.EXIT;
             }
-            else if (enemy.transform.position.Equals(target.transform.position))
-            {
-                nextState = new Gather(enemy);
-                stage = EVENT.EXIT;
-            }
+
+            //Debug.Log("travelling...");
+        }
+
+        if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) < 0.2f)
+        {
+            //Debug.Log("Initiate Gather");
+            nextState = new Gather(enemy);
+            stage = EVENT.EXIT;
         }
     }
 
