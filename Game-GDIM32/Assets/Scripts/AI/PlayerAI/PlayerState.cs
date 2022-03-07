@@ -23,7 +23,6 @@ public class PlayerState : MonoBehaviour
     protected GameObject target;
 
     //Order1 order1;
-    target = enemy.gameObject;
 
     public PlayerState(Player _enemy)
     {
