@@ -194,7 +194,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.20784314, g: 0.62352943, b: 0.25882354, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -19404,12 +19404,16 @@ PrefabInstance:
       value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1180882121698710010, guid: 23368a6073fbacc49a6d620cee964e41, type: 3}
+    - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.r
@@ -19622,6 +19626,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderPanelP1: {fileID: 658442369}
+--- !u!95 &775294290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775294281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f1bf195451c52d4cb1e76d02631bd4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &779987555
 GameObject:
   m_ObjectHideFlags: 0
@@ -21949,16 +21972,20 @@ PrefabInstance:
       value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 755939820551679082, guid: a4745e90915f9144e8b66ae5401777cb, type: 3}
+    - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.g
-      value: 0.23156738
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767316, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2786050198612767319, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
       propertyPath: m_RootOrder
@@ -75908,7 +75935,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.20784314, g: 0.62352943, b: 0.25882354, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
