@@ -47,12 +47,7 @@ public class Patrol : State
 
         if (CanSeePlayer())
         {
-            if (npc.gameObject.tag == "Bull")
-            {
-                nextState = new Pursue(npc, player);
-                stage = EVENT.EXIT;
-            }
-            else if (PlayerHasFood())
+            if (PlayerHasFood())
             {
                 nextState = new Approach(npc, player);
                 stage = EVENT.EXIT;
