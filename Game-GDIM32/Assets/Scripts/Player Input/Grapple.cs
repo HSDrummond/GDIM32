@@ -10,7 +10,7 @@ public class Grapple : MonoBehaviour
     public float moveSpeed = 2;
     public float grappleLength = 5;
     [Min(1)]
-    public int maxPoints = 3;
+    public int maxPoints = 1;
 
     private Rigidbody2D rig;
     private List<Vector2> points = new List<Vector2>();
