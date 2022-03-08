@@ -19,6 +19,7 @@ public class Scan : PlayerState
         // 3. copies the order from the Order2 script and puts the name of the items in orderList.
         if (enemy.orderList.Count == 0)
         {
+            enemy.orderList.Clear();
             enemy.NewOrder();
             foreach (var x in enemy.orderList)
             {
@@ -63,12 +64,7 @@ public class Scan : PlayerState
                 }
             }
 
-            if (enemy.Target != null)
-            {
-                // enemy.Target.name = enemy.Target.name.Replace("(Clone)", "");
-                enemy.orderList.Remove(enemy.Target.name);
-                Debug.Log("NEW OBJECTIVE: " + enemy.Target);
-            }
+            Debug.Log("NEW OBJECTIVE: " + enemy.Target);
         }
 
         base.Enter();   

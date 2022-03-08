@@ -37,7 +37,11 @@ public class Gather : PlayerState
         else
         {
             enemy.Target.GetComponent<PickUp>().PerformPickup2();
+            Debug.Log("objcount: " + enemy.Objectives.Count);
             enemy.Objectives.Remove(new KeyValuePair<string, GameObject>(enemy.Target.name, enemy.Target));
+            Debug.Log("objcount: " + enemy.Objectives.Count);
+            enemy.orderList.Remove(enemy.Target.name);
+
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }

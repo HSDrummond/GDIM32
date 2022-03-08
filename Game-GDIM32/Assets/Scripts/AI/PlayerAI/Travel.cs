@@ -31,6 +31,7 @@ public class Travel : PlayerState
         }
         else if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) < 0.3f)
         {
+            enemy.Agent.speed = 0;
             //Debug.Log("Initiate Gather");
             nextState = new Gather(enemy);
             stage = EVENT.EXIT;
