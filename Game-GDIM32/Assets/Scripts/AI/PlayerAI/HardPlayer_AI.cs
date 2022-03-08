@@ -11,9 +11,13 @@ public class HardPlayer_AI : Player
 
     private bool loaded = false;
 
+    public int inventorySize = 3;
+
     private void Start()
     {
+        // 1. waits for crops to spawn initially.
         StartCoroutine(WaitForLoad());
+        // 2. starts the first state: scan.
         Init();
     }
 
@@ -29,20 +33,18 @@ public class HardPlayer_AI : Player
         {
             currentState = currentState.Process();
         }
-
     }
 
-    public List<string> UpdateOrder()
+    public List<string> NewOrder()
     {
         orderList.Clear();
-        
         List<GameObject> templist = GetComponent<Order2>().OrderListP2;
         foreach (var x in templist)
         {
-            Debug.Log("new order " + (templist.IndexOf(x) + 1) + ": " + x.name);
             orderList.Add(x.name);
         }
 
+        Debug.Log("ORDER LIST LENGTH: " + orderList.Count);
         return orderList;
     }
 

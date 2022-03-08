@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Order2 : MonoBehaviour
 {
+    public bool pickedUp = false;
+
     [SerializeField] OrderScoreboard scoreboard;
 
     public static Order2 instance;

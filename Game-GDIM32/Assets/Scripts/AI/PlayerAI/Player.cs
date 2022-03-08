@@ -35,8 +35,4 @@ public class Player : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
-
-
-
-
 }

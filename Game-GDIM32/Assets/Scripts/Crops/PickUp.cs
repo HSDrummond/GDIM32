@@ -73,11 +73,6 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-       
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player1") && (collision.GetComponent<Inventory1>().items.Count < collision.GetComponent<Inventory1>().space))

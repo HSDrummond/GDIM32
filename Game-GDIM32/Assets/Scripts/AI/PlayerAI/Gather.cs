@@ -22,12 +22,14 @@ public class Gather : PlayerState
 
     public override void Update()
     {
+        /*
         if (enemy.Target.Equals(null))
         {
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
-        else if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) > 0.2f)
+        */
+        if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) > 0.3f)
         {
             nextState = new Travel(enemy);
             stage = EVENT.EXIT;
@@ -35,10 +37,7 @@ public class Gather : PlayerState
         else
         {
             enemy.Target.GetComponent<PickUp>().PerformPickup2();
-            enemy.orderList.Remove(enemy.Target.name);
             enemy.Objectives.Remove(new KeyValuePair<string, GameObject>(enemy.Target.name, enemy.Target));
-            enemy.Target = null;
-
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
