@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 641753878390629236}
   - component: {fileID: -1549099504164767325}
   - component: {fileID: 3235474127808785448}
-  - component: {fileID: 5559771259192870162}
+  - component: {fileID: 6549696777097113556}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Crop
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1533345061155466705, guid: 0966307780baa6e43af9d996955dbd8d, type: 3}
---- !u!58 &5559771259192870162
-CircleCollider2D:
+--- !u!61 &6549696777097113556
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -195,9 +195,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0051748813, y: 0}
+  m_Offset: {x: 0, y: -0.03534049}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.31}
+    newSize: {x: 0.14, y: 0.14}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.07156019
+  m_Size: {x: 0.19, y: 0.23931903}
+  m_EdgeRadius: 0
 --- !u!1 &4716714825668069477
 GameObject:
   m_ObjectHideFlags: 0
