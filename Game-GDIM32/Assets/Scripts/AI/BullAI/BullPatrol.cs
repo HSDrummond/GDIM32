@@ -8,8 +8,8 @@ public class BullPatrol : BullState
 {
     int currentIndex = -1;
 
-    public BullPatrol(Bull _bull, Transform _player)
-        : base(_bull, _player)
+    public BullPatrol(Bull _bull, Transform _player, Rigidbody2D _rigidbody2D)
+        : base(_bull, _player, _rigidbody2D)
     {
         name = STATE.PATROL;
         bull.Agent.speed = 2;
@@ -50,12 +50,12 @@ public class BullPatrol : BullState
             
             if (CanAttackPlayer())
             {
-                nextState = new Attack(bull, player);
+                nextState = new Attack(bull, player, rigidbody2D);
                 stage = EVENT.EXIT;
             }
             else if (CanChargePlayer())
             {
-                nextState = new Charge(bull, player);
+                nextState = new Charge(bull, player, rigidbody2D);
                 stage = EVENT.EXIT;
             }
         }

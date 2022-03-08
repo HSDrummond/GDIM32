@@ -20,16 +20,18 @@ public class BullState
     protected EVENT stage;
     protected Bull bull;
     protected Transform player;
+    protected Rigidbody2D rigidbody2D;
     protected BullState nextState;
 
     //Order1 order1;
 
-    public BullState(Bull _bull, Transform _player)
+    public BullState(Bull _bull, Transform _player, Rigidbody2D _rigidbody2D)
     {
         bull = _bull;
         stage = EVENT.ENTER;
         player = _player;
         name = STATE.IDLE;
+        rigidbody2D = _rigidbody2D;
         //Dict would be better, right now not bullet proof
     }
 

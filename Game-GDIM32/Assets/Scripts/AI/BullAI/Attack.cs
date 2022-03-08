@@ -6,10 +6,10 @@ using UnityEngine.AI;
 
 public class Attack : BullState
 {
-    float rotationSpeed = 2.0f;
+    //float rotationSpeed = 2.0f;
     //AudioSource attack;
-    public Attack(Bull _bull, Transform _player)
-        : base(_bull, _player)
+    public Attack(Bull _bull, Transform _player, Rigidbody2D _rigidbody2D)
+        : base(_bull, _player, _rigidbody2D)
     {
         name = STATE.ATTACK;
         //attack = _npc.GetComponent<AudioSource>();
@@ -24,16 +24,28 @@ public class Attack : BullState
     }
     public override void Update()
     {
-        Vector3 direction = player.position - bull.transform.position;
+        /*Vector3 direction = player.position - bull.transform.position;
         float angle = Vector3.Angle(direction, bull.transform.forward);
         direction.y = 0;
 
         bull.transform.rotation = Quaternion.Slerp(bull.transform.rotation,
             Quaternion.LookRotation(direction),
-            Time.deltaTime * rotationSpeed);
+            Time.deltaTime * rotationSpeed);*/
+
+        //Push Player away
+        Vector3 direction = player.position - bull.transform.position;
+        //float angle = Vector3.Angle(direction, bull.transform.forward);
+        direction.z = 0;
+
+        rigidbody2D.AddForce(direction/2, ForceMode2D.Impulse);
+
+
+
+
+
         if (!CanAttackPlayer())
         {
-            nextState = new Bull_Idle(bull, player);
+            nextState = new Bull_Idle(bull, player, rigidbody2D);
             stage = EVENT.EXIT;
         }
     }

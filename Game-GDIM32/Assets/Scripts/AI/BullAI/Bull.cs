@@ -31,6 +31,9 @@ public class Bull : MonoBehaviour
     [SerializeField]
     protected Transform player;
 
+    [SerializeField]
+    protected Rigidbody2D rigidbody2D;
+
 
     void Start()
     {

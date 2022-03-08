@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class Pursue : BullState
 {
-    public Pursue(Bull _bull, Transform _player)
-        : base(_bull, _player)
+    public Pursue(Bull _bull, Transform _player, Rigidbody2D _rigidbody2D)
+        : base(_bull, _player, _rigidbody2D)
     {
         name = STATE.PURSUE;
         bull.Agent.speed = 5;
@@ -26,17 +26,17 @@ public class Pursue : BullState
         {
             if (CanAttackPlayer())
             {
-                nextState = new Attack(bull, player);
+                nextState = new Attack(bull, player, rigidbody2D);
                 stage = EVENT.EXIT;
             }
             else if (CanChargePlayer())
             {
-                nextState = new Charge(bull, player);
+                nextState = new Charge(bull, player, rigidbody2D);
                 stage = EVENT.EXIT;
             }
             else if (!CanSeePlayer())
             {
-                nextState = new BullPatrol(bull, player);
+                nextState = new BullPatrol(bull, player, rigidbody2D);
                 stage = EVENT.EXIT;
             }
         }

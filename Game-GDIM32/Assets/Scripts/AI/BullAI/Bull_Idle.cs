@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Bull_Idle : BullState
 {
-    public Bull_Idle(Bull _bull, Transform _player)
-        : base(_bull, _player)
+    public Bull_Idle(Bull _bull, Transform _player, Rigidbody2D _rigidbody2D)
+        : base(_bull, _player, _rigidbody2D)
     {
         name = STATE.IDLE;
     }
@@ -21,23 +21,23 @@ public class Bull_Idle : BullState
     {
         if (CanSeePlayer())
         {
-            nextState = new Pursue(bull, player);
+            nextState = new Pursue(bull, player, rigidbody2D);
             stage = EVENT.EXIT;
         }
         else if (CanChargePlayer())
         {
-            nextState = new Charge(bull, player);
+            nextState = new Charge(bull, player, rigidbody2D);
             stage = EVENT.EXIT;
         }
         else if (CanAttackPlayer())
         {
-            nextState = new Attack(bull, player);
+            nextState = new Attack(bull, player, rigidbody2D);
             stage = EVENT.EXIT;
         }
         else
         {
             //Timer
-            nextState = new BullPatrol(bull, player);
+            nextState = new BullPatrol(bull, player, rigidbody2D);
             stage = EVENT.EXIT;
         }
     }
