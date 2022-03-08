@@ -1,15 +1,15 @@
-//Attack: Shiloh
+//Attack: Hunter
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Attack : State
+public class Attack : BullState
 {
     float rotationSpeed = 2.0f;
     //AudioSource attack;
-    public Attack(Animal _npc, Transform _player)
-        : base(_npc, _player)
+    public Attack(Bull _bull, Transform _player)
+        : base(_bull, _player)
     {
         name = STATE.ATTACK;
         //attack = _npc.GetComponent<AudioSource>();
@@ -18,22 +18,22 @@ public class Attack : State
     public override void Enter()
     {
         //anim.SetTrigger("isShooting");
-        npc.Agent.isStopped = true;
+        bull.Agent.isStopped = true;
         //attack.Play();
         base.Enter();
     }
     public override void Update()
     {
-        Vector3 direction = player.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
+        Vector3 direction = player.position - bull.transform.position;
+        float angle = Vector3.Angle(direction, bull.transform.forward);
         direction.y = 0;
 
-        npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,
+        bull.transform.rotation = Quaternion.Slerp(bull.transform.rotation,
             Quaternion.LookRotation(direction),
             Time.deltaTime * rotationSpeed);
         if (!CanAttackPlayer())
         {
-            nextState = new Idle(npc, player);
+            nextState = new Bull_Idle(bull, player);
             stage = EVENT.EXIT;
         }
     }

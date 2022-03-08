@@ -22,12 +22,7 @@ public class Idle : State
     {
         if (CanSeePlayer())
         {
-            if (npc.tag is "Bull")
-            {
-                nextState = new Pursue(npc, player);
-                stage = EVENT.EXIT;
-            }
-            else if (PlayerHasFood())
+            if (PlayerHasFood())
             {
                 nextState = new Approach(npc, player);
                 stage = EVENT.EXIT;

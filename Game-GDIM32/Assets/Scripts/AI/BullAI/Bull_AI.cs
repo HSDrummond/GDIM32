@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Bull_AI : Animal
+public class Bull_AI : Bull
 {
     private void Start()
     {
@@ -16,10 +16,10 @@ public class Bull_AI : Animal
     protected override void Init()
     {
         base.Init();
-        currentState = new Idle(this, player);
-        visDist = 10.0f;
+        currentState = new Bull_Idle(this, player);
+        visDist = 30.0f;
         visAngle = 30.0f;
-        chargeDist = 7.0f;
+        chargeDist = 10.0f;
         attackDist = 3.0f;
     }
 
@@ -29,3 +29,4 @@ public class Bull_AI : Animal
         //Debug.Log(currentState);
     }
 }
+

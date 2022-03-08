@@ -1,17 +1,17 @@
-//Pursue: Shiloh
+//Pursue: Hunter
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Pursue : State
+public class Pursue : BullState
 {
-    public Pursue(Animal _npc, Transform _player)
-        : base(_npc, _player)
+    public Pursue(Bull _bull, Transform _player)
+        : base(_bull, _player)
     {
         name = STATE.PURSUE;
-        npc.Agent.speed = 5;
-        npc.Agent.isStopped = false;
+        bull.Agent.speed = 5;
+        bull.Agent.isStopped = false;
     }
 
     public override void Enter()
@@ -21,17 +21,22 @@ public class Pursue : State
     }
     public override void Update()
     {
-        npc.Agent.SetDestination(player.position);
-        if (npc.Agent.hasPath)
+        bull.Agent.SetDestination(player.position);
+        if (bull.Agent.hasPath)
         {
             if (CanAttackPlayer())
             {
-                nextState = new Attack(npc, player);
+                nextState = new Attack(bull, player);
+                stage = EVENT.EXIT;
+            }
+            else if (CanChargePlayer())
+            {
+                nextState = new Charge(bull, player);
                 stage = EVENT.EXIT;
             }
             else if (!CanSeePlayer())
             {
-                nextState = new Patrol(npc, player);
+                nextState = new BullPatrol(bull, player);
                 stage = EVENT.EXIT;
             }
         }
