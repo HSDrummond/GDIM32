@@ -19501,6 +19501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rb: {fileID: 775294282}
+  animator: {fileID: 775294290}
 --- !u!114 &775294285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22124,6 +22125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rb: {fileID: 1245798519}
+  animator: {fileID: 1245798527}
 --- !u!114 &1245798523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22191,6 +22193,25 @@ MonoBehaviour:
   - {fileID: 5622345979480762805, guid: f95fd4e3f2c981341a3a1a7e28538a89, type: 3}
   - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}
   OrderListP2: []
+--- !u!95 &1245798527
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245798518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15f6df2fc1793e642a71ccdc56b9aca4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1246595895
 GameObject:
   m_ObjectHideFlags: 0
