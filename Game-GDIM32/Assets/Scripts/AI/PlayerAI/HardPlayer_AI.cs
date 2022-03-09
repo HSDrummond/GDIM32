@@ -13,6 +13,8 @@ public class HardPlayer_AI : Player
 
     public int inventorySize = 3;
 
+    public bool currentItemCollected = false;
+
     private void Start()
     {
         // 1. waits for crops to spawn initially.

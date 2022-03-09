@@ -34,17 +34,24 @@ public class Gather : PlayerState
             nextState = new Travel(enemy);
             stage = EVENT.EXIT;
         }
-        else
+        else if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) <= 0.3f && enemy.currentItemCollected == false)
         {
-            enemy.Target.GetComponent<PickUp>().PerformPickup2();
-            Debug.Log("objcount: " + enemy.Objectives.Count);
+            enemy.currentItemCollected = true;
+            Debug.Log("PICKED UP: " + enemy.Target);
             enemy.Objectives.Remove(new KeyValuePair<string, GameObject>(enemy.Target.name, enemy.Target));
-            Debug.Log("objcount: " + enemy.Objectives.Count);
             enemy.orderList.Remove(enemy.Target.name);
+            enemy.Target.GetComponent<PickUp>().PerformPickup2();
+            enemy.Target = null;
 
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
+        else if (enemy.currentItemCollected == true)
+        {
+            nextState = new Scan(enemy);
+            stage = EVENT.EXIT;
+        }
+
     }
 
 

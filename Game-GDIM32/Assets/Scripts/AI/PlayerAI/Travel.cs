@@ -36,12 +36,15 @@ public class Travel : PlayerState
             nextState = new Gather(enemy);
             stage = EVENT.EXIT;
         }
+        else if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) < 4)
+        {
+            enemy.Agent.speed = 2;
+        }
         else
         {
             enemy.Agent.SetDestination(enemy.Target.transform.position);
         }
     }
-
 
     public override void Exit()
     {
