@@ -19579,6 +19579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rb: {fileID: 775294282}
+  animator: {fileID: 0}
 --- !u!114 &775294285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22200,6 +22201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderList: []
+  inventorySize: 0
+  currentItemCollected: 0
 --- !u!4 &1245798520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2786050198612767319, guid: e26bac196799a514eaf442ea55a05e6b, type: 3}
@@ -22257,6 +22260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7120ead334abb44ab8515fc42e6a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedUp: 0
   scoreboard: {fileID: 1980937531}
   Tier3Crops:
   - {fileID: 2950150854912063082, guid: 14a4a37f43d560742bf4a9cb2c3180a8, type: 3}

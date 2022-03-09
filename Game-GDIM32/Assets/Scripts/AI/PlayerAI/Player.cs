@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     protected PlayerState currentState;
     public PlayerState CurrentState { get { return currentState; } }
 
-    protected GameObject target;
-    public GameObject Target { get { return target; } set { target = value; } }
+    protected GameObject currentTarget;
+    public GameObject CurrentTarget { get { return currentTarget; } set { currentTarget = value; } }
 
 
     void Start()

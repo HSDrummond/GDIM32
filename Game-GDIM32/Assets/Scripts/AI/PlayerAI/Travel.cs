@@ -19,6 +19,32 @@ public class Travel : PlayerState
         //anim.SetTrigger("isRunning");
         base.Enter();
     }
+
+    public override void Update()
+    {
+        // if there is no target, re-scan. Once there is a target, travel to it and then slow down to gather once close enough.
+        if (enemy.CurrentTarget == null)
+        {
+            nextState = new Scan(enemy);
+            stage = EVENT.EXIT;
+        }
+        else if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.3f)
+        {
+            enemy.Agent.speed = 0;
+            nextState = new Gather(enemy);
+            stage = EVENT.EXIT;
+        }
+        else if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 4)
+        {
+            enemy.Agent.speed = 2;
+        }
+        else
+        {
+            enemy.Agent.SetDestination(enemy.CurrentTarget.transform.position);
+        }
+    }
+
+    /*
     public override void Update()
     {
         //Debug.Log("distance" + Vector2.Distance(enemy.Target.transform.position, enemy.transform.position));
@@ -45,6 +71,7 @@ public class Travel : PlayerState
             enemy.Agent.SetDestination(enemy.Target.transform.position);
         }
     }
+    */
 
     public override void Exit()
     {

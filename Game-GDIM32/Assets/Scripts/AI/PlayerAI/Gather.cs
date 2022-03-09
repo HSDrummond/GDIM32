@@ -22,13 +22,40 @@ public class Gather : PlayerState
 
     public override void Update()
     {
-        /*
+        if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.3f)
+        {
+            enemy.CurrentTarget.GetComponent<PickUp>().PerformPickup2();
+            ExecutePickUp();
+
+            nextState = new Scan(enemy);
+            stage = EVENT.EXIT;
+        }
+        else
+        {
+            nextState = new Travel(enemy);
+            stage = EVENT.EXIT;
+        }
+    }
+
+    private void ExecutePickUp()
+    {
+        enemy.orderList.Remove(enemy.CurrentTarget.name);
+        enemy.inventorySize += 1;
+
+        if (enemy.inventorySize == 3 && enemy.orderList.Count == 0)
+        {
+            enemy.inventorySize = 0;
+        }
+    }
+
+    /*
+    public override void Update()
+    {
         if (enemy.Target.Equals(null))
         {
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
-        */
         if (Vector2.Distance(enemy.Target.transform.position, enemy.transform.position) > 0.3f)
         {
             nextState = new Travel(enemy);
@@ -53,6 +80,7 @@ public class Gather : PlayerState
         }
 
     }
+    */
 
 
     public override void Exit()

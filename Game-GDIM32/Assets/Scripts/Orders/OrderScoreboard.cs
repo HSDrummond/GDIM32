@@ -9,7 +9,6 @@ public class OrderScoreboard : MonoBehaviour
 
     public void UpdateScoreboard(int score)
     {
-        Debug.Log("called");
         scoreboard.text = "completed: " + score.ToString();
     }
 }

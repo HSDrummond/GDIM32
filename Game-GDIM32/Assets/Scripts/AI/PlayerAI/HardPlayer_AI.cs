@@ -11,9 +11,9 @@ public class HardPlayer_AI : Player
 
     private bool loaded = false;
 
-    public int inventorySize = 3;
+    public int inventorySize = 0;
 
-    public bool currentItemCollected = false;
+    //public bool currentItemCollected = false;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class HardPlayer_AI : Player
         }
     }
 
-    public List<string> NewOrder()
+    public void NewOrder()
     {
         orderList.Clear();
         List<GameObject> templist = GetComponent<Order2>().OrderListP2;
@@ -45,9 +45,22 @@ public class HardPlayer_AI : Player
         {
             orderList.Add(x.name);
         }
+    }
 
-        Debug.Log("ORDER LIST LENGTH: " + orderList.Count);
-        return orderList;
+    public void UpdateObjectives()
+    {
+        Objectives.Clear();
+
+        List<GameObject> tempScan = new List<GameObject>();
+        tempScan.AddRange(
+            GameObject.FindGameObjectsWithTag("Crop"));
+        tempScan.AddRange(
+            GameObject.FindGameObjectsWithTag("Animal"));
+
+        foreach (var x in tempScan)
+        {
+            Objectives.Add(new KeyValuePair<string, GameObject>(x.name.Replace("(Clone)", ""), x));
+        }
     }
 
     IEnumerator WaitForLoad()
