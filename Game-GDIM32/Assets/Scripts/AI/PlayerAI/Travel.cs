@@ -28,9 +28,9 @@ public class Travel : PlayerState
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
         }
-        else if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.3f)
+        else if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.2f)
         {
-            enemy.Agent.speed = 0;
+            Debug.Log("hlist Gather");
             nextState = new Gather(enemy);
             stage = EVENT.EXIT;
         }

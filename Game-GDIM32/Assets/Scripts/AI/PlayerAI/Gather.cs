@@ -16,16 +16,27 @@ public class Gather : PlayerState
 
     public override void Enter()
     {
+        foreach (var x in enemy.orderList)
+        {
+            Debug.Log("hlist: " + x);
+        }
+        Debug.Log("hlist-----------");
         //anim.SetTrigger("isStopped");
         base.Enter();
     }
 
     public override void Update()
     {
-        if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.3f)
+        Debug.Log("Gather");
+        if (Vector2.Distance(enemy.CurrentTarget.transform.position, enemy.transform.position) < 0.2f)
         {
             enemy.CurrentTarget.GetComponent<PickUp>().PerformPickup2();
             ExecutePickUp();
+
+            if (enemy.CheckInvSize() == 0)
+            {
+                enemy.orderList = new List<string>();
+            }
 
             nextState = new Scan(enemy);
             stage = EVENT.EXIT;
@@ -39,13 +50,8 @@ public class Gather : PlayerState
 
     private void ExecutePickUp()
     {
+        Debug.Log("picked up: " + enemy.CurrentTarget.name);
         enemy.orderList.Remove(enemy.CurrentTarget.name);
-        enemy.inventorySize += 1;
-
-        if (enemy.inventorySize == 3 && enemy.orderList.Count == 0)
-        {
-            enemy.inventorySize = 0;
-        }
     }
 
     /*

@@ -16,12 +16,11 @@ public class Scan : PlayerState
 
     public override void Enter()
     {
-        Debug.Log(enemy.inventorySize + ", " + enemy.orderList.Count);
         // update all objectives to catch now inactive objectives
         enemy.UpdateObjectives();
 
         // gets the new order when inventory is cleared and order is fulfilled
-        if (enemy.inventorySize == 0 && enemy.orderList.Count == 0)
+        if (enemy.CheckInvSize() == 0)
         {
             enemy.NewOrder();
         }
@@ -46,7 +45,7 @@ public class Scan : PlayerState
             }
         }
 
-        base.Enter();
+        stage = EVENT.UPDATE;
     }
 
     /*
@@ -106,6 +105,6 @@ public class Scan : PlayerState
     public override void Exit()
     {
         //anim.ResetTrigger("isRunning");
-        base.Exit();
+        // base.Exit();
     }
 }

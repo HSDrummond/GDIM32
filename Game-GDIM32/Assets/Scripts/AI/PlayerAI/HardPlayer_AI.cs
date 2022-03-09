@@ -11,8 +11,6 @@ public class HardPlayer_AI : Player
 
     private bool loaded = false;
 
-    public int inventorySize = 0;
-
     //public bool currentItemCollected = false;
 
     private void Start()
@@ -31,15 +29,20 @@ public class HardPlayer_AI : Player
 
     void Update()
     {
+        Debug.Log(currentState + ", " + Agent.speed + ", " + Agent.isStopped);
         if (loaded)
         {
             currentState = currentState.Process();
         }
     }
 
+    public int CheckInvSize()
+    {
+        return GetComponent<Inventory2>().items.Count;
+    }
+
     public void NewOrder()
     {
-        orderList.Clear();
         List<GameObject> templist = GetComponent<Order2>().OrderListP2;
         foreach (var x in templist)
         {
