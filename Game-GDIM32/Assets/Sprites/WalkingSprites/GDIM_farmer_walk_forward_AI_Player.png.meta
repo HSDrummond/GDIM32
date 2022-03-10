@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: -1369051864822818346
     second: GDIM_farmer_walk_forward_AI_Player_6
+  - first:
+      213: -3687880796319700095
+    second: Shadow
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -266,6 +269,27 @@ TextureImporter:
       bones: []
       spriteID: 6d9562e1596200de0800000000000000
       internalID: -1369051864822818346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 18
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b216974f302dcc0800000000000000
+      internalID: -3687880796319700095
       vertices: []
       indices: 
       edges: []
