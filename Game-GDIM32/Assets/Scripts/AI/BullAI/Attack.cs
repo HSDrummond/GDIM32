@@ -19,7 +19,7 @@ public class Attack : BullState
     {
         //anim.SetTrigger("isShooting");
         bull.Agent.isStopped = true;
-        //attack.Play();
+        bull.source.Play();
         base.Enter();
     }
     public override void Update()

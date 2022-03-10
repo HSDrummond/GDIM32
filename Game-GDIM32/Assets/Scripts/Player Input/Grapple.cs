@@ -24,7 +24,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mousePos - (Vector2)transform.position).normalized;

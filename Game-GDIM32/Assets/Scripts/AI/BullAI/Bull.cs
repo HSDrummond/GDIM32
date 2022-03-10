@@ -34,6 +34,8 @@ public class Bull : MonoBehaviour
     [SerializeField]
     protected Rigidbody2D rigidbody2D;
 
+    public AudioSource source;
+
 
     void Start()
     {

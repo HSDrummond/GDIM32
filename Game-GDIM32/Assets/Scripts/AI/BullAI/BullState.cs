@@ -32,6 +32,7 @@ public class BullState
         player = _player;
         name = STATE.IDLE;
         rigidbody2D = _rigidbody2D;
+        
         //Dict would be better, right now not bullet proof
     }
 
