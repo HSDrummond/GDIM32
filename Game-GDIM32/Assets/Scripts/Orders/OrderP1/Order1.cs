@@ -25,9 +25,14 @@ public class Order1 : MonoBehaviour
 
     public List<GameObject> OrderListP1 = new List<GameObject>();
 
+    [SerializeField]
+    private AudioSource orderComplete;
+
     //Inventory1 inventory1;
 
     private bool OrderActive = false;
+
+    
 
 
     private void Awake()
@@ -81,6 +86,7 @@ public class Order1 : MonoBehaviour
     public void ClearOrder()
     {
         OrderListP1.Clear();
+        orderComplete.Play();
         //Debug.Log("Clearing Order");
         if (onOrderChangedCallback != null)
         {

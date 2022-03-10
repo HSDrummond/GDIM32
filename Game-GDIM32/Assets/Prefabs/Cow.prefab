@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 7180552536332893918}
   - component: {fileID: 7989861686918407429}
   - component: {fileID: 645624943}
-  - component: {fileID: 2067576164}
   - component: {fileID: 1185432923}
   m_Layer: 0
   m_Name: Cow
@@ -253,19 +252,6 @@ NavMeshAgent:
   m_BaseOffset: 0.19
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2067576164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180552536332893922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55dd2c4a8e3f19742baf5b1ff4f855a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 7123697970519553940, guid: dc007250f76b67542a219801c0596b01, type: 3}
 --- !u!114 &1185432923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,3 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7123697970519553940, guid: dc007250f76b67542a219801c0596b01, type: 3}
+  pickUpSound: {fileID: 0}

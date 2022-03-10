@@ -19,6 +19,12 @@ public class Inventory1 : MonoBehaviour
 
     private PlayerControls playerControls;
 
+    [SerializeField]
+    private AudioSource pickUpSound;
+
+    [SerializeField]
+    private AudioSource dropSound;
+
     private void Awake()
     {
         instance = this;
@@ -29,6 +35,7 @@ public class Inventory1 : MonoBehaviour
             if (context.interaction is HoldInteraction)
             {
                 PerformRemoval1();
+                dropSound.Play();
             }
         };
     }
@@ -49,6 +56,8 @@ public class Inventory1 : MonoBehaviour
 
     public void Add(GameObject item)
     {
+        pickUpSound.Play();
+
         if(items.Count >= space)
         {
             return;

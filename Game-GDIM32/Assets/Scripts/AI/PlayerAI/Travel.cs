@@ -16,12 +16,14 @@ public class Travel : PlayerState
 
     public override void Enter()
     {
+        enemy.moving.Play();
         //anim.SetTrigger("isRunning");
         base.Enter();
     }
 
     public override void Update()
     {
+       
         // if there is no target, re-scan. Once there is a target, travel to it and then slow down to gather once close enough.
         if (enemy.CurrentTarget == null)
         {
@@ -75,6 +77,7 @@ public class Travel : PlayerState
 
     public override void Exit()
     {
+        enemy.moving.Stop();
         //anim.ResetTrigger("isRunning");
         base.Exit();
     }

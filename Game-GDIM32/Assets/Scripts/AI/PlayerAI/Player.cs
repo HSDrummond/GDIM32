@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     protected GameObject currentTarget;
     public GameObject CurrentTarget { get { return currentTarget; } set { currentTarget = value; } }
 
+    public AudioSource moving;
+
 
     void Start()
     {

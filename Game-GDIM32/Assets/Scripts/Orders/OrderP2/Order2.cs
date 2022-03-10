@@ -29,6 +29,9 @@ public class Order2 : MonoBehaviour
 
     //Inventory2 inventory2;
 
+    [SerializeField]
+    private AudioSource orderComplete;
+
     private bool OrderActive = false;
 
 
@@ -83,7 +86,8 @@ public class Order2 : MonoBehaviour
     public void ClearOrder()
     {
         OrderListP2.Clear();
-        //Debug.Log("Clearing Order");
+        orderComplete.Play();
+
         if (onOrderChangedCallback != null)
         {
             onOrderChangedCallback.Invoke();
