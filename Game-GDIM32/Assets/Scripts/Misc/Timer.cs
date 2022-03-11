@@ -27,6 +27,11 @@ public class Timer : MonoBehaviour
         {
             currentTime = 0;
         }
+        //Color change: Shiloh
+        if(currentTime <= 10)
+        {
+            CountDownTimer.color = Color.red;
+        }
     }
 
     void DisplayTime( float currentTime)
