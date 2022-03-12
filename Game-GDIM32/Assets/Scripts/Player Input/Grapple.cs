@@ -1,3 +1,4 @@
+//made by clay, tried to make a lasso/harpoon type weapon to disrupt players
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class Grapple : MonoBehaviour
         lr.positionCount = 0;
     }
 
-    // mouse click is working when testing
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -55,7 +56,7 @@ public class Grapple : MonoBehaviour
                 lr.SetPosition(n+1, points[j]);
             }
         }
-        //change tmmrw morning
+        
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Detatch();
@@ -78,7 +79,7 @@ public class Grapple : MonoBehaviour
         center /= points.Length;
         return center;
     }
-    //update vectors, rope not showing?
+    
     private void OnDrawGizmos()
     {
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
