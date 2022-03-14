@@ -8,12 +8,8 @@ might be aggressive! Whichever player completes the most orders when the timer r
 
 *Note*
 - Crops in the tree is intentional.
-- You can not pick up animals yet but they do wander, run away, and approach when you have corn or wheat.
-- The bull will pursue you if it sees you but can not attack you. 
-*ANIMAL VISION IS A CONE TO THE LEFT*
-- walking over tomato plants causes you to grow while pumpkins shink you.
-*A lot of these design decision were made with the intention of a future implemented tool that
-can be used for interacting with the other players, animals, and certain crops.*
+- Bull Will push you into you hit a wall or some other object. This is so it causes a real threat!
+- AI Player can break sometimes. This is due to 2D Navmesh shenegains. TIP: Don't use navmesh and use A* if enough time.
 
 Controls:
 Player 1 uses WASD to move, E tap to pick up items, and E hold to drop your most currently picked up item.
@@ -28,14 +24,12 @@ The player with the most orders wins!
 
 Deliverables:
 
-1. Your game should allow for local multiplayer with at least 2 players.
-- 2 Players each with their own systems working
+1. There is an AI mode where you can race against the AI as if it was an actual player
 
-2. Your game should have implemented at least 2 autonomous agents that move and exhibit distinct choices or sequences of actions. Examples would be choosing to fight or flee depending on some data, animals that search for food with some kind of strategy but change behavior when given food or flee from different animals or the player. The real goal here is that you implement one of the following: a finite state machine, a behavior tree or goal oriented action planning.
-- FSM controlling all the animals and bull. All animals have diffrent state and bulls state machine is built alongside the others. Using the 2D Navmesh plugin was an trip
+2. To gain back points that we lost on the AI last time we have upgraded the AI as promised and there are now two entirly diferent state machines that control the passive mobs and the aggresive cow.
 
-3. Optionally your game can have an option to have an AI replace one of the players (either opponent or co-op player)
-- Will not have an AI replace yet but we seperated the player scripts (i.e order and inventory) so it will be easier to do so when we get there. 
+3. You can pick up animal products as well! 
 
+4. There is variance in each of the 2 families
 
-NOTE FOR INSTRUCTORS=> Check the other txt file titled "Scripts Breakdown" for a breakdown of who worked on each script.
+5. Increased UI that we lost points on last time
